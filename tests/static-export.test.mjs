@@ -27,7 +27,7 @@ test("ships every public module download and preview", async () => {
   for (const publicPath of publicPaths) {
     const normalized = publicPath
       .replace(/^https?:\/\/[^/]+/i, "")
-      .replace(/^\/pltw-lego-module-library/, "")
+      .replace(/^\/lego-module-library/, "")
       .replace(/^\//, "");
     await access(new URL(`../public/${normalized}`, import.meta.url));
   }

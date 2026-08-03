@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const siteUrl = "https://ttansopalucks.github.io/pltw-lego-module-library/";
+const siteUrl = "https://spartandesign.github.io/lego-module-library/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
