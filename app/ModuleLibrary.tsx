@@ -33,6 +33,7 @@ type Module = {
   studentTip: string;
   download: string;
   cardboardDownload?: string;
+  cardboardMount?: "internal" | "edge-tabs";
 };
 
 const modules: Module[] = [
@@ -124,6 +125,8 @@ const modules: Module[] = [
     teacherNote: "All three versions use the same Coupon-F interface and end-loaded M3 terminal approach.",
     studentTip: "Choose the housing that matches the interaction: a shadow, a blocked beam, or opening a cover.",
     download: "/downloads/photocell-module-family-v1.zip",
+    cardboardDownload: "/downloads/photocell-module-family-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "potentiometer",
@@ -141,6 +144,8 @@ const modules: Module[] = [
     teacherNote: "The printed base uses a 7.8 mm bushing opening; start with the included 5.9 mm knob bore.",
     studentTip: "Connect the center pin to SIG. Swap the two outside connections if clockwise rotation changes the value the wrong way.",
     download: "/downloads/potentiometer-control-dial-module-v1.zip",
+    cardboardDownload: "/downloads/potentiometer-control-dial-module-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "resistor",
@@ -158,6 +163,8 @@ const modules: Module[] = [
     teacherNote: "The 40 × 24 mm body is scaled to the resistor and uses captive metal nuts rather than threads cut into PLA.",
     studentTip: "Loop each resistor lead beneath its washer and tighten gently. The shared terminal can accept clips on opposite sides.",
     download: "/downloads/compact-resistor-module-v2-1.zip",
+    cardboardDownload: "/downloads/compact-resistor-module-v2-1-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "led",
@@ -175,6 +182,8 @@ const modules: Module[] = [
     teacherNote: "The LED body and terminal layout worked physically; the underside was updated to the project’s Coupon-F fit.",
     studentTip: "Match the longer LED lead to + before bending the leads toward the M3 terminals. Never omit the required resistor.",
     download: "/downloads/three-led-m3-module-v2-3.zip",
+    cardboardDownload: "/downloads/three-led-m3-module-v2-3-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "buzzer",
@@ -192,6 +201,8 @@ const modules: Module[] = [
     teacherNote: "The default terminal spacing is 19.5 mm. Check the actual board before printing a classroom batch.",
     studentTip: "Place − on the left and + on the right, then tighten only enough for reliable electrical contact.",
     download: "/downloads/piezo-buzzer-module-v2.zip",
+    cardboardDownload: "/downloads/piezo-buzzer-module-v2-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "microbit",
@@ -245,6 +256,8 @@ const modules: Module[] = [
     teacherNote: "The cradle uses a 12.5 mm body channel, 27.5 mm ear spacing, and 1.8 mm pilots.",
     studentTip: "Route the cable through the closest lower portal before seating both mounting ears on the tower tops.",
     download: "/downloads/sg90-vertical-cradle-7x3-v1.zip",
+    cardboardDownload: "/downloads/sg90-vertical-cradle-7x3-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardMount: "edge-tabs",
   },
   {
     id: "servo-gauge",
@@ -571,7 +584,7 @@ export function ModuleLibrary() {
                 </a>
                 {module.cardboardDownload ? (
                   <a className="download-link cardboard-download" href={asset(module.cardboardDownload)} download>
-                    Cardboard dual-mount prototype <span aria-hidden="true">↓</span>
+                    {module.cardboardMount === "edge-tabs" ? "Cardboard edge-tab prototype" : "Cardboard dual-mount prototype"} <span aria-hidden="true">↓</span>
                   </a>
                 ) : (
                   <p className="mount-note">LEGO-only: two recessed brad heads do not safely fit this compact layout.</p>
@@ -609,7 +622,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>Nine larger modules now have an optional prototype base with two 2.8 × 1.4 mm brad slits and recessed 8.5 mm head pockets. Their original F-fit LEGO geometry remains intact. Compact modules stay LEGO-only where the brad heads would interfere with terminals, sensors, or the servo channel.</p>
+          <p>All fifteen module designs now have an optional cardboard version. Nine larger modules place two 2.8 × 1.4 mm brad slits and recessed 8.5 mm head pockets inside the original footprint. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath, keeping their terminals, sensors, and servo channels unobstructed. Every original F-fit LEGO clutch point remains intact.</p>
         </div>
       </section>
 
