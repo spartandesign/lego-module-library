@@ -5,7 +5,15 @@
 import { useMemo, useState } from "react";
 
 type Category = "Sensors & inputs" | "Circuit building" | "Servo mechanisms" | "micro:bit";
-type StatusTone = "verified" | "tuned" | "prototype";
+type StatusTone = "classroom" | "mechanism" | "fit" | "prototype";
+
+type HistoryItem = {
+  version: string;
+  problem: string;
+  change: string;
+  result: string;
+  state: "Current" | "Superseded";
+};
 
 type Module = {
   id: string;
@@ -32,8 +40,8 @@ const modules: Module[] = [
     title: "Flex-Sensor Paddle",
     version: "v3.3 · M3 clamp",
     category: "Sensors & inputs",
-    status: "Verified mechanism",
-    statusTone: "verified",
+    status: "Mechanism confirmed",
+    statusTone: "mechanism",
     image: "/images/flex-paddle.png",
     summary: "A compact three-point bending paddle with a guided flex sensor and side-loaded M3 connector clamp.",
     learning: "Turns a changing bend into a repeatable analog input while protecting the sensor connector.",
@@ -49,8 +57,8 @@ const modules: Module[] = [
     title: "Flex-Sensor Door / Flap",
     version: "v1.6 · 8-32 hinge",
     category: "Sensors & inputs",
-    status: "Classroom-tested motion",
-    statusTone: "verified",
+    status: "Mechanism confirmed",
+    statusTone: "mechanism",
     image: "/images/flex-door.png",
     summary: "A door-like flap that bends the active sensor region about 45 mm from the connector and stops near 80 degrees.",
     learning: "Connects physical door position to analog readings and makes sensor wear, range, and calibration visible.",
@@ -64,10 +72,10 @@ const modules: Module[] = [
   {
     id: "pressure-pad",
     title: "FSR Pressure Pad",
-    version: "v1.1 · wider stem",
+    version: "v1.2 · wider stem + F-fit",
     category: "Sensors & inputs",
-    status: "Physical pocket fit verified",
-    statusTone: "verified",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/pressure-pad.png",
     summary: "A removable object platform and centered puck focus force onto a flat FSR402-style pressure sensor.",
     learning: "Helps students trigger the sensor with classroom objects instead of relying on a fingertip press.",
@@ -76,15 +84,15 @@ const modules: Module[] = [
     parts: ["F-fit base", "Top plate", "0.8 / 1.0 / 1.2 mm pucks"],
     teacherNote: "The circular pocket was physically confirmed; the stem channel was widened to 7.8 mm from the coupon result.",
     studentTip: "Start with the 1.0 mm puck. The empty platform should read like no platform, while a light press should change the value.",
-    download: "/downloads/fsr402-pressure-pad-module-v1-1.zip",
+    download: "/downloads/fsr402-pressure-pad-module-v1-2.zip",
   },
   {
     id: "pressure-universal",
     title: "Universal Pressure Testbed",
-    version: "v2 · interchangeable tops",
+    version: "v2.4 · end-loaded nuts",
     category: "Sensors & inputs",
-    status: "Fit-tuned design",
-    statusTone: "tuned",
+    status: "Prototype",
+    statusTone: "prototype",
     image: "/images/pressure-universal.png",
     summary: "A compact FSR pedestal with a three-guide carrier, hard stops, removable puck, and multiple object platforms.",
     learning: "Lets teams compare actuator shape, platform area, trigger threshold, and repeatability on the same sensor base.",
@@ -93,14 +101,14 @@ const modules: Module[] = [
     parts: ["F-fit base", "Guide carrier", "M3 clamp", "Three tops", "Two pucks"],
     teacherNote: "Use it as a trigger/input testbed, not a calibrated scale. FSR readings vary with preload and actuator geometry.",
     studentTip: "Change only one top or puck at a time, then record the empty and loaded readings before comparing designs.",
-    download: "/downloads/fsr402-universal-pressure-module-v2.zip",
+    download: "/downloads/fsr402-universal-pressure-module-v2-4.zip",
   },
   {
     id: "photocell",
     title: "Photocell Module Family",
     version: "v1 · ambient / beam / cover",
     category: "Sensors & inputs",
-    status: "Curriculum-ready prototype",
+    status: "Prototype",
     statusTone: "prototype",
     image: "/images/photocell.png",
     summary: "Three compact housings use the same 5 mm GL55-series photoresistor for ambient, interrupted-beam, or covered-light tests.",
@@ -117,7 +125,7 @@ const modules: Module[] = [
     title: "Potentiometer Control Dial",
     version: "v1 · 3-terminal input",
     category: "Sensors & inputs",
-    status: "Curriculum-ready prototype",
+    status: "Prototype",
     statusTone: "prototype",
     image: "/images/potentiometer.png",
     summary: "A supportless vertical mount for a common 16 mm, 10 kΩ potentiometer with three protected M3 terminals.",
@@ -132,10 +140,10 @@ const modules: Module[] = [
   {
     id: "resistor",
     title: "Compact Resistor Terminal",
-    version: "v2 · 5 × 3 studs",
+    version: "v2.1 · compact F-fit",
     category: "Circuit building",
-    status: "Fit-tuned module",
-    statusTone: "tuned",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/resistor.png",
     summary: "A protected ¼-watt resistor cradle with metal M3 terminals sized for one or two alligator clips.",
     learning: "Moves repeated clip wear away from fragile resistor leads and makes voltage-divider junctions easier to see.",
@@ -144,15 +152,15 @@ const modules: Module[] = [
     parts: ["Single compact F-fit base"],
     teacherNote: "The 40 × 24 mm body is scaled to the resistor and uses captive metal nuts rather than threads cut into PLA.",
     studentTip: "Loop each resistor lead beneath its washer and tighten gently. The shared terminal can accept clips on opposite sides.",
-    download: "/downloads/compact-resistor-module-v2.zip",
+    download: "/downloads/compact-resistor-module-v2-1.zip",
   },
   {
     id: "led",
     title: "Three-LED M3 Terminal Module",
     version: "v2.3 · polarity labels",
     category: "Circuit building",
-    status: "Classroom fit verified",
-    statusTone: "verified",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/led-module.png",
     summary: "Three 5 mm LEDs are held together with clearly marked positive and negative M3 connection points.",
     learning: "Protects LED leads, keeps polarity visible, and gives alligator clips durable metal contact points.",
@@ -168,8 +176,8 @@ const modules: Module[] = [
     title: "Piezo Buzzer Terminal Module",
     version: "v2 · PLTW 26SMDBZ1",
     category: "Circuit building",
-    status: "Fit-tuned design",
-    statusTone: "tuned",
+    status: "Prototype",
+    statusTone: "prototype",
     image: "/images/buzzer.png",
     summary: "A compact holder aligns the buzzer’s own terminal holes with M3 screws and large alligator-clip contact surfaces.",
     learning: "Makes polarity and durable sound-output wiring visible while keeping hardware above the LEGO interface.",
@@ -183,10 +191,10 @@ const modules: Module[] = [
   {
     id: "microbit",
     title: "micro:bit Original-Guide Stand",
-    version: "v5 · stand + clip guide",
+    version: "v5.1 · F-fit + clip guide",
     category: "micro:bit",
-    status: "Exact-model fit",
-    statusTone: "tuned",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/microbit-stand.png",
     summary: "An upright LEGO stand packaged with the exact 5.85 × 56 mm alligator-clip guide used to design its cradle.",
     learning: "Keeps the display visible while preserving access to P0, P1, P2, 3V, and GND during testing.",
@@ -195,15 +203,15 @@ const modules: Module[] = [
     parts: ["Exact-guide LEGO stand", "Microbit Alligator Clip Guide v2", "Attribution notice"],
     teacherNote: "The included guide measures 5.85 × 56.0 × 11.2 mm and drops into the stand's continuous 56.8 mm cradle. Its CC BY-SA attribution is included in the download.",
     studentTip: "Slide the micro:bit into the guide first, then lower both into the stand with the LED display facing the open front.",
-    download: "/downloads/microbit-original-guide-stand-v5.zip",
+    download: "/downloads/microbit-original-guide-stand-v5-1.zip",
   },
   {
     id: "servo-horizontal",
     title: "SG90 Horizontal Cradle",
     version: "v1.3 · reversible label-up",
     category: "Servo mechanisms",
-    status: "Physical fit tuned",
-    statusTone: "tuned",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/servo-horizontal.png",
     summary: "A low-profile SG90 mount with dual horn gaps, a central wire exit, and a screw-fastened retaining strap.",
     learning: "Provides a shared base for horizontal pointers, linkages, continuous-servo spools, and student mechanisms.",
@@ -219,8 +227,8 @@ const modules: Module[] = [
     title: "SG90 Vertical Cradle",
     version: "v1 · compact 7 × 3",
     category: "Servo mechanisms",
-    status: "Servo dimensions verified",
-    statusTone: "verified",
+    status: "Fit confirmed",
+    statusTone: "fit",
     image: "/images/servo-vertical.png",
     summary: "A compact upright SG90 mount with aligned mounting-ear pilots and wire portals in both towers.",
     learning: "Supports upright wheels, levers, flags, pointers, and continuous-rotation mechanisms on a small footprint.",
@@ -236,8 +244,8 @@ const modules: Module[] = [
     title: "Upright Dashboard Gauge",
     version: "v1.8 · label-up",
     category: "Servo mechanisms",
-    status: "Iteratively fit tuned",
-    statusTone: "tuned",
+    status: "Mechanism confirmed",
+    statusTone: "mechanism",
     image: "/images/servo-gauge.png",
     summary: "A dashboard-style SG90 gauge with a visible horn pointer and three interchangeable 60 mm panels.",
     learning: "Maps sensor values or program states to a physical display students can read across the table.",
@@ -253,7 +261,7 @@ const modules: Module[] = [
     title: "Positional Latch / Deadbolt",
     version: "v1 · horn-as-bolt",
     category: "Servo mechanisms",
-    status: "Ready for first prototype",
+    status: "Prototype",
     statusTone: "prototype",
     image: "/images/servo-latch.png",
     summary: "The included single-arm SG90 horn rotates into an open-top reinforced keeper to model a physical lock.",
@@ -270,7 +278,7 @@ const modules: Module[] = [
     title: "Positional Door / Flap Linkage",
     version: "v1 · adjustable crank",
     category: "Servo mechanisms",
-    status: "Ready for first prototype",
+    status: "Prototype",
     statusTone: "prototype",
     image: "/images/servo-door.png",
     summary: "A positional SG90 drives a separate 8-32 hinged flap through selectable printed links and crank holes.",
@@ -283,6 +291,69 @@ const modules: Module[] = [
     download: "/downloads/sg90-door-flap-linkage-module-v1.zip",
   },
 ];
+
+const developmentHistory: Record<string, HistoryItem[]> = {
+  "flex-paddle": [
+    { version: "v2.8-v3.1", problem: "Screw heads blocked paddle travel; a drilled zip-tie workaround proved the bending geometry.", change: "Moved retention away from the paddle and preserved the proven three-point bend.", result: "Paddle motion and sensor response were physically confirmed.", state: "Superseded" },
+    { version: "v3.3", problem: "The connector still needed side-to-side control and serviceable nuts.", change: "Added a surrounding M3 clamp with resistor-style captive nut loading.", result: "Current recommendation; mechanism is confirmed, final clamp combination remains a prudent pilot print.", state: "Current" },
+  ],
+  "flex-door": [
+    { version: "v1.4", problem: "A bend near the connector stem produced little useful value change.", change: "Moved the bend to 45 mm and changed the hinge to 8-32 hardware.", result: "The 45 mm bend and 8-32 hinge were physically confirmed.", state: "Superseded" },
+    { version: "v1.6", problem: "The strip could slide upward and needed more stem support at 90 degrees.", change: "Extended the flap while preserving the proven v1.4 motion.", result: "Current recommendation; later protection detail has not been separately classroom reconfirmed.", state: "Current" },
+  ],
+  "pressure-pad": [
+    { version: "v1.1", problem: "The round pocket fit, but the connector-equipped sensor stem was too tight.", change: "Widened the stem channel to 7.8 mm.", result: "Circular pocket fit was confirmed; wider channel followed the physical coupon result.", state: "Superseded" },
+    { version: "v1.2", problem: "The earlier download still used the older LEGO underside.", change: "Combined the wider channel with the preferred Coupon-F interface.", result: "Current recommendation; pilot the final combined revision before a class set.", state: "Current" },
+  ],
+  "pressure-universal": [
+    { version: "v2-v2.3", problem: "The interchangeable surfaces worked as a design direction, but captive nuts did not reliably align with the screw axes.", change: "Extended the connector area and iterated the clamp and nut tunnels.", result: "Superseded because assembly access remained unreliable.", state: "Superseded" },
+    { version: "v2.4", problem: "Nuts could not be seated accurately from the earlier openings.", change: "Both nuts now load from the extended connector end into 5.8 mm pockets.", result: "Current printable prototype; physical confirmation is still required.", state: "Current" },
+  ],
+  photocell: [
+    { version: "Concept", problem: "One exposed photocell did not demonstrate the different interactions used in P2.4 and P3.2.", change: "Separated ambient, interrupted-beam, and covered-light interactions.", result: "Three useful activity-specific concepts were selected.", state: "Superseded" },
+    { version: "v1", problem: "The family needed durable terminals and the shared LEGO interface.", change: "Added M3 terminals and Coupon-F undersides to all three housings.", result: "Current prototype family; component and activity fit still need physical testing.", state: "Current" },
+  ],
+  potentiometer: [
+    { version: "Concept", problem: "Students needed a repeatable continuous input for both curriculum projects.", change: "Selected a common 16 mm, 10 kOhm potentiometer with three visible terminals.", result: "Control and wiring requirements established.", state: "Superseded" },
+    { version: "v1", problem: "The shaft, bushing, knob, and terminal access had to remain supportless.", change: "Added a vertical mount, two knob choices, and three M3 terminals.", result: "Current prototype; print and component fit remain to be confirmed.", state: "Current" },
+  ],
+  resistor: [
+    { version: "v1-v2", problem: "The first body was too large and printed holes were too loose to hold screws.", change: "Reduced the footprint to 40 x 24 mm and changed to captive metal M3 nuts.", result: "Compact terminal arrangement and nut method were physically successful.", state: "Superseded" },
+    { version: "v2.1", problem: "The compact model still needed the preferred LEGO clutch.", change: "Rebuilt the underside with the Coupon-F interface.", result: "Current recommendation; terminal and LEGO fits are known, combined revision should be piloted once.", state: "Current" },
+  ],
+  led: [
+    { version: "v2-v2.2", problem: "The LED holder worked, but the first LEGO underside did not; polarity also needed to be obvious.", change: "Added durable M3 terminals and + / - markings.", result: "LED bodies and terminal arrangement worked physically.", state: "Superseded" },
+    { version: "v2.3", problem: "The otherwise successful top needed the preferred clutch geometry.", change: "Applied the Coupon-F underside without changing the LED layout.", result: "Current fit-confirmed recommendation; pilot the final underside combination before quantity printing.", state: "Current" },
+  ],
+  buzzer: [
+    { version: "v1", problem: "The buzzer terminal holes accepted M3 hardware loosely, but the module did not fit the testbed plate.", change: "Reworked the underside around the shared skirt and clutch experiments.", result: "Superseded by the Coupon-F result.", state: "Superseded" },
+    { version: "v2", problem: "The final buzzer body and terminal spacing still needed the proven LEGO interface.", change: "Applied the F-fit bottom and retained 19.5 mm terminal spacing.", result: "Current prototype; verify the actual buzzer board before classroom quantities.", state: "Current" },
+  ],
+  microbit: [
+    { version: "v3-v5", problem: "Estimated guide orientation and pockets did not match the original printed guide.", change: "Measured the actual guide mesh and built a continuous 6.7 x 56.8 mm open-top cradle.", result: "The stand now matches the exact 5.85 x 56 x 11.2 mm guide geometry.", state: "Superseded" },
+    { version: "v5.1", problem: "The exact-guide stand still used the earlier LEGO underside.", change: "Added the Coupon-F underside and bundled the exact guide with its attribution.", result: "Current fit-confirmed recommendation; pilot the final combined stand once.", state: "Current" },
+  ],
+  "servo-horizontal": [
+    { version: "Coupon-v1.2", problem: "The servo body fit at 12.4 mm, but it could slide out and wire routing forced one orientation.", change: "Added retention, larger horn-side gaps, and wire exits at both ends.", result: "Body width and 1.8 mm pilot dimensions were physically confirmed.", state: "Superseded" },
+    { version: "v1.3", problem: "The servo needed label-up installation in either direction.", change: "Added dual horn gaps, central wire relief, and a retaining strap.", result: "Current fit-confirmed foundation; mechanism-specific attachments still require testing.", state: "Current" },
+  ],
+  "servo-vertical": [
+    { version: "Fit coupon", problem: "The SG90 dimensions and pilot size needed direct confirmation.", change: "Tested 12.4 mm body width, 27.5 mm ear spacing, and 1.8 mm pilots.", result: "Core servo dimensions were physically confirmed.", state: "Superseded" },
+    { version: "v1", problem: "An upright mount was needed on a compact 7 x 3 footprint with wire access.", change: "Added two mounting towers and lower wire portals.", result: "Current fit-confirmed design; full activity use remains to be piloted.", state: "Current" },
+  ],
+  "servo-gauge": [
+    { version: "v1-v1.7", problem: "The horn lacked sweep clearance, panel holders snapped, markings failed, and panels were repeatedly too narrow.", change: "Strengthened edge-length holders, corrected the panel width, reduced the opening, and simplified markings.", result: "The v1.7 panel width was physically reported correct.", state: "Superseded" },
+    { version: "v1.8", problem: "The successful-width gauge still forced the servo label downward.", change: "Mirrored the primary opening for label-up installation while preserving panel width.", result: "Current recommendation; new label-up orientation was not physically reconfirmed.", state: "Current" },
+  ],
+  "servo-latch": [
+    { version: "Concept", problem: "P2.4 needed a visible physical locked/unlocked output.", change: "Selected the SG90 horn itself as a rotating bolt.", result: "Simple mechanism direction established.", state: "Superseded" },
+    { version: "v1", problem: "The bolt needed a safe keeper and adjustable software endpoints.", change: "Added an open-top reinforced keeper and retained the shared servo cradle geometry.", result: "Current prototype awaiting a physical motion and clearance test.", state: "Current" },
+  ],
+  "servo-door": [
+    { version: "Concept", problem: "Students needed to see how servo rotation becomes flap motion.", change: "Chose a separate 8-32 hinge and adjustable crank linkage.", result: "Mechanism-learning goals and hardware were defined.", state: "Superseded" },
+    { version: "v1", problem: "One linkage geometry would hide mechanical-advantage tradeoffs.", change: "Included three link lengths and multiple crank holes.", result: "Current prototype awaiting physical endpoint, binding, and force testing.", state: "Current" },
+  ],
+};
 
 const filters: Array<"All" | Category> = [
   "All",
@@ -310,6 +381,8 @@ export function ModuleLibrary() {
         module.category,
         module.summary,
         module.learning,
+        module.status,
+        developmentHistory[module.id].map((item) => `${item.version} ${item.problem} ${item.change} ${item.result}`).join(" "),
         module.projectFit.join(" "),
         module.hardware.join(" "),
       ]
@@ -415,6 +488,13 @@ export function ModuleLibrary() {
           </div>
         </div>
 
+        <div className="status-legend" aria-label="Physical testing status key">
+          <span className="status status-classroom">Classroom confirmed</span><p>Final version physically tested.</p>
+          <span className="status status-mechanism">Mechanism confirmed</span><p>Motion or electrical function tested; a later fit detail changed.</p>
+          <span className="status status-fit">Fit confirmed</span><p>Component or LEGO fit tested; full activity still pending.</p>
+          <span className="status status-prototype">Prototype</span><p>Designed and printable; awaiting physical confirmation.</p>
+        </div>
+
         <div className="results-line" aria-live="polite">
           <span>{visibleModules.length} {visibleModules.length === 1 ? "module" : "modules"}</span>
           {(filter !== "All" || query) && (
@@ -457,6 +537,23 @@ export function ModuleLibrary() {
                   </div>
                   <p><strong>Teacher note:</strong> {module.teacherNote}</p>
                   <p><strong>Student tip:</strong> {module.studentTip}</p>
+                </details>
+
+                <details className="history-details">
+                  <summary>Development history</summary>
+                  <ol className="history-list">
+                    {developmentHistory[module.id].map((item) => (
+                      <li key={item.version}>
+                        <div className="history-heading">
+                          <strong>{item.version}</strong>
+                          <span className={`history-state history-${item.state.toLowerCase()}`}>{item.state}</span>
+                        </div>
+                        <p><b>Problem:</b> {item.problem}</p>
+                        <p><b>Change:</b> {item.change}</p>
+                        <p><b>Test result:</b> {item.result}</p>
+                      </li>
+                    ))}
+                  </ol>
                 </details>
 
                 <a className="download-link" href={asset(module.download)} download>
