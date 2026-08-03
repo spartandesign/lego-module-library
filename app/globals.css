@@ -722,6 +722,26 @@ img {
   transform: translateY(3px);
 }
 
+.cardboard-download {
+  border-top: 0;
+  color: #8a4b12;
+  margin-top: 10px;
+  padding-top: 0;
+}
+
+.mount-note {
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: auto 0 0;
+  padding-top: 16px;
+}
+
+.dual-mount-callout {
+  grid-column: 1 / -1;
+}
+
 .empty-state {
   border: 1px dashed var(--line);
   padding: 60px 24px;

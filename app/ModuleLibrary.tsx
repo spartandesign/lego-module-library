@@ -32,6 +32,7 @@ type Module = {
   teacherNote: string;
   studentTip: string;
   download: string;
+  cardboardDownload?: string;
 };
 
 const modules: Module[] = [
@@ -51,6 +52,7 @@ const modules: Module[] = [
     teacherNote: "The bending geometry is proven. Version 3.3 keeps the paddle path clear and uses resistor-module-style captive nuts.",
     studentTip: "Install the printed/striped sensor side upward and tighten the clamp only enough to stop the stiff connector from lifting.",
     download: "/downloads/flex-paddle-module-v3-3.zip",
+    cardboardDownload: "/downloads/flex-paddle-module-v3-3-dual-mount-3dot.zip",
   },
   {
     id: "flex-door",
@@ -68,6 +70,7 @@ const modules: Module[] = [
     teacherNote: "The open end lets the strip slide while the extended flap and fixed support protect the vulnerable stem.",
     studentTip: "Move the flap slowly on the first test and confirm the striped active area bends—not the white connector stem.",
     download: "/downloads/flex-door-flap-module-v1-6.zip",
+    cardboardDownload: "/downloads/flex-door-flap-module-v1-6-dual-mount-3dot.zip",
   },
   {
     id: "pressure-pad",
@@ -85,6 +88,7 @@ const modules: Module[] = [
     teacherNote: "The circular pocket was physically confirmed; the stem channel was widened to 7.8 mm from the coupon result.",
     studentTip: "Start with the 1.0 mm puck. The empty platform should read like no platform, while a light press should change the value.",
     download: "/downloads/fsr402-pressure-pad-module-v1-2.zip",
+    cardboardDownload: "/downloads/fsr402-pressure-pad-module-v1-2-dual-mount-3dot.zip",
   },
   {
     id: "pressure-universal",
@@ -102,6 +106,7 @@ const modules: Module[] = [
     teacherNote: "Use it as a trigger/input testbed, not a calibrated scale. FSR readings vary with preload and actuator geometry.",
     studentTip: "Change only one top or puck at a time, then record the empty and loaded readings before comparing designs.",
     download: "/downloads/fsr402-universal-pressure-module-v2-4.zip",
+    cardboardDownload: "/downloads/fsr402-universal-pressure-module-v2-4-dual-mount-3dot.zip",
   },
   {
     id: "photocell",
@@ -204,6 +209,7 @@ const modules: Module[] = [
     teacherNote: "The included guide measures 5.85 × 56.0 × 11.2 mm and drops into the stand's continuous 56.8 mm cradle. Its CC BY-SA attribution is included in the download.",
     studentTip: "Slide the micro:bit into the guide first, then lower both into the stand with the LED display facing the open front.",
     download: "/downloads/microbit-original-guide-stand-v5-1.zip",
+    cardboardDownload: "/downloads/microbit-original-guide-stand-v5-2-dual-mount-3dot.zip",
   },
   {
     id: "servo-horizontal",
@@ -221,6 +227,7 @@ const modules: Module[] = [
     teacherNote: "The 12.4 mm body fit and 1.8 mm screw pilots came from the project’s physical coupon tests.",
     studentTip: "Keep the label upward, choose the horn-side gap that gives the wire the straighter path, then install the strap.",
     download: "/downloads/sg90-horizontal-cradle-v1-3.zip",
+    cardboardDownload: "/downloads/sg90-horizontal-cradle-v1-3-dual-mount-3dot.zip",
   },
   {
     id: "servo-vertical",
@@ -255,6 +262,7 @@ const modules: Module[] = [
     teacherNote: "Version 1.8 preserves the successful panel width and moves the opening to the right for label-up servo installation.",
     studentTip: "Center the servo before attaching the pointer, then test the full sweep slowly to avoid rubbing the panel.",
     download: "/downloads/sg90-upright-dashboard-gauge-v1-8.zip",
+    cardboardDownload: "/downloads/sg90-upright-dashboard-gauge-v1-8-dual-mount-3dot.zip",
   },
   {
     id: "servo-latch",
@@ -272,6 +280,7 @@ const modules: Module[] = [
     teacherNote: "Start near 90° unlocked and 0° locked, but tune the endpoints for each servo and horn before student use.",
     studentTip: "Never force the horn against the keeper. Move in small angle steps until you find safe LOCKED and UNLOCKED values.",
     download: "/downloads/sg90-latch-deadbolt-module-v1.zip",
+    cardboardDownload: "/downloads/sg90-latch-deadbolt-module-v1-dual-mount-3dot.zip",
   },
   {
     id: "servo-door",
@@ -289,6 +298,7 @@ const modules: Module[] = [
     teacherNote: "The three links and crank holes make this a useful mechanism-design investigation, not only a finished actuator.",
     studentTip: "Start with the 26.0 mm link and middle crank hole, then move the servo in small software steps to find safe limits.",
     download: "/downloads/sg90-door-flap-linkage-module-v1.zip",
+    cardboardDownload: "/downloads/sg90-door-flap-linkage-module-v1-dual-mount-3dot.zip",
   },
 ];
 
@@ -559,6 +569,13 @@ export function ModuleLibrary() {
                 <a className="download-link" href={asset(module.download)} download>
                   Download print pack <span aria-hidden="true">↓</span>
                 </a>
+                {module.cardboardDownload ? (
+                  <a className="download-link cardboard-download" href={asset(module.cardboardDownload)} download>
+                    Cardboard dual-mount prototype <span aria-hidden="true">↓</span>
+                  </a>
+                ) : (
+                  <p className="mount-note">LEGO-only: two recessed brad heads do not safely fit this compact layout.</p>
+                )}
               </div>
             </article>
           ))}
@@ -589,6 +606,10 @@ export function ModuleLibrary() {
         <div className="fit-callout">
           <strong>Coupon-F LEGO interface</strong>
           <p>The shared underside uses a 6.60 mm split-ring clutch tube with a 4.80 mm center and a 0.90 mm relief slot. Keep the LEGO cavity on the build plate and preserve the first-layer settings that produced the successful coupon.</p>
+        </div>
+        <div className="fit-callout dual-mount-callout">
+          <strong>Direct cardboard dual mount</strong>
+          <p>Nine larger modules now have an optional prototype base with two 2.8 × 1.4 mm brad slits and recessed 8.5 mm head pockets. Their original F-fit LEGO geometry remains intact. Compact modules stay LEGO-only where the brad heads would interfere with terminals, sensors, or the servo channel.</p>
         </div>
       </section>
 
