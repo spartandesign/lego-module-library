@@ -53,7 +53,7 @@ const modules: Module[] = [
     teacherNote: "The bending geometry is proven. Version 3.3 keeps the paddle path clear and uses resistor-module-style captive nuts.",
     studentTip: "Install the printed/striped sensor side upward and tighten the clamp only enough to stop the stiff connector from lifting.",
     download: "/downloads/flex-paddle-module-v3-3.zip",
-    cardboardDownload: "/downloads/flex-paddle-module-v3-3-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/flex-paddle-module-v3-4-dual-mount-3p4.zip",
   },
   {
     id: "flex-door",
@@ -71,7 +71,7 @@ const modules: Module[] = [
     teacherNote: "The open end lets the strip slide while the extended flap and fixed support protect the vulnerable stem.",
     studentTip: "Move the flap slowly on the first test and confirm the striped active area bends—not the white connector stem.",
     download: "/downloads/flex-door-flap-module-v1-6.zip",
-    cardboardDownload: "/downloads/flex-door-flap-module-v1-6-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/flex-door-flap-module-v1-7-dual-mount-3p4.zip",
   },
   {
     id: "pressure-pad",
@@ -89,7 +89,7 @@ const modules: Module[] = [
     teacherNote: "The circular pocket was physically confirmed; the stem channel was widened to 7.8 mm from the coupon result.",
     studentTip: "Start with the 1.0 mm puck. The empty platform should read like no platform, while a light press should change the value.",
     download: "/downloads/fsr402-pressure-pad-module-v1-2.zip",
-    cardboardDownload: "/downloads/fsr402-pressure-pad-module-v1-2-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/fsr402-pressure-pad-module-v1-3-dual-mount-3p4.zip",
   },
   {
     id: "pressure-universal",
@@ -107,7 +107,7 @@ const modules: Module[] = [
     teacherNote: "Use it as a trigger/input testbed, not a calibrated scale. FSR readings vary with preload and actuator geometry.",
     studentTip: "Change only one top or puck at a time, then record the empty and loaded readings before comparing designs.",
     download: "/downloads/fsr402-universal-pressure-module-v2-4.zip",
-    cardboardDownload: "/downloads/fsr402-universal-pressure-module-v2-4-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/fsr402-universal-pressure-module-v2-5-dual-mount-3p4.zip",
   },
   {
     id: "photocell",
@@ -125,7 +125,7 @@ const modules: Module[] = [
     teacherNote: "All three versions use the same Coupon-F interface and end-loaded M3 terminal approach.",
     studentTip: "Choose the housing that matches the interaction: a shadow, a blocked beam, or opening a cover.",
     download: "/downloads/photocell-module-family-v1.zip",
-    cardboardDownload: "/downloads/photocell-module-family-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/photocell-module-family-v1-1-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -144,7 +144,7 @@ const modules: Module[] = [
     teacherNote: "The printed base uses a 7.8 mm bushing opening; start with the included 5.9 mm knob bore.",
     studentTip: "Connect the center pin to SIG. Swap the two outside connections if clockwise rotation changes the value the wrong way.",
     download: "/downloads/potentiometer-control-dial-module-v1.zip",
-    cardboardDownload: "/downloads/potentiometer-control-dial-module-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/potentiometer-control-dial-module-v1-1-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -163,7 +163,7 @@ const modules: Module[] = [
     teacherNote: "The 40 × 24 mm body is scaled to the resistor and uses captive metal nuts rather than threads cut into PLA.",
     studentTip: "Loop each resistor lead beneath its washer and tighten gently. The shared terminal can accept clips on opposite sides.",
     download: "/downloads/compact-resistor-module-v2-1.zip",
-    cardboardDownload: "/downloads/compact-resistor-module-v2-1-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/compact-resistor-module-v2-2-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -182,7 +182,7 @@ const modules: Module[] = [
     teacherNote: "The LED body and terminal layout worked physically; the underside was updated to the project’s Coupon-F fit.",
     studentTip: "Match the longer LED lead to + before bending the leads toward the M3 terminals. Never omit the required resistor.",
     download: "/downloads/three-led-m3-module-v2-3.zip",
-    cardboardDownload: "/downloads/three-led-m3-module-v2-3-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/three-led-m3-module-v2-4-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -201,7 +201,7 @@ const modules: Module[] = [
     teacherNote: "The default terminal spacing is 19.5 mm. Check the actual board before printing a classroom batch.",
     studentTip: "Place − on the left and + on the right, then tighten only enough for reliable electrical contact.",
     download: "/downloads/piezo-buzzer-module-v2.zip",
-    cardboardDownload: "/downloads/piezo-buzzer-module-v2-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/piezo-buzzer-module-v2-1-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -238,7 +238,7 @@ const modules: Module[] = [
     teacherNote: "The 12.4 mm body fit and 1.8 mm screw pilots came from the project’s physical coupon tests.",
     studentTip: "Keep the label upward, choose the horn-side gap that gives the wire the straighter path, then install the strap.",
     download: "/downloads/sg90-horizontal-cradle-v1-3.zip",
-    cardboardDownload: "/downloads/sg90-horizontal-cradle-v1-3-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/sg90-horizontal-cradle-v1-4-dual-mount-3p4.zip",
   },
   {
     id: "servo-vertical",
@@ -256,7 +256,7 @@ const modules: Module[] = [
     teacherNote: "The cradle uses a 12.5 mm body channel, 27.5 mm ear spacing, and 1.8 mm pilots.",
     studentTip: "Route the cable through the closest lower portal before seating both mounting ears on the tower tops.",
     download: "/downloads/sg90-vertical-cradle-7x3-v1.zip",
-    cardboardDownload: "/downloads/sg90-vertical-cradle-7x3-v1-dual-mount-edge-tabs-3dot.zip",
+    cardboardDownload: "/downloads/sg90-vertical-cradle-7x3-v1-1-dual-mount-3p4.zip",
     cardboardMount: "edge-tabs",
   },
   {
@@ -275,7 +275,7 @@ const modules: Module[] = [
     teacherNote: "Version 1.8 preserves the successful panel width and moves the opening to the right for label-up servo installation.",
     studentTip: "Center the servo before attaching the pointer, then test the full sweep slowly to avoid rubbing the panel.",
     download: "/downloads/sg90-upright-dashboard-gauge-v1-8.zip",
-    cardboardDownload: "/downloads/sg90-upright-dashboard-gauge-v1-8-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/sg90-upright-dashboard-gauge-v1-9-dual-mount-3p4.zip",
   },
   {
     id: "servo-latch",
@@ -293,7 +293,7 @@ const modules: Module[] = [
     teacherNote: "Start near 90° unlocked and 0° locked, but tune the endpoints for each servo and horn before student use.",
     studentTip: "Never force the horn against the keeper. Move in small angle steps until you find safe LOCKED and UNLOCKED values.",
     download: "/downloads/sg90-latch-deadbolt-module-v1.zip",
-    cardboardDownload: "/downloads/sg90-latch-deadbolt-module-v1-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/sg90-latch-deadbolt-module-v1-1-dual-mount-3p4.zip",
   },
   {
     id: "servo-door",
@@ -311,7 +311,7 @@ const modules: Module[] = [
     teacherNote: "The three links and crank holes make this a useful mechanism-design investigation, not only a finished actuator.",
     studentTip: "Start with the 26.0 mm link and middle crank hole, then move the servo in small software steps to find safe limits.",
     download: "/downloads/sg90-door-flap-linkage-module-v1.zip",
-    cardboardDownload: "/downloads/sg90-door-flap-linkage-module-v1-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/sg90-door-flap-linkage-module-v1-1-dual-mount-3p4.zip",
   },
 ];
 
@@ -624,7 +624,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>All fifteen module designs have an optional cardboard version. The micro:bit v5.3 uses measured-fastener clearance: two 3.4 × 1.8 mm slits plus a three-size fit coupon. The remaining larger prototypes retain their original internal slit geometry until the new clearance is physically confirmed. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath. Every original F-fit LEGO clutch point remains intact.</p>
+          <p>All fifteen module designs now use the physically confirmed two-dot brass-fastener opening: 3.4 × 1.8 mm, with recessed 8.5 mm head pockets. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath. Every package includes the confirmed fit coupon, and every original F-fit LEGO clutch point remains intact.</p>
         </div>
       </section>
 
