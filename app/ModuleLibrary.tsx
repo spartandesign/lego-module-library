@@ -207,7 +207,7 @@ const modules: Module[] = [
   {
     id: "microbit",
     title: "micro:bit Original-Guide Stand",
-    version: "v5.1 · F-fit + clip guide",
+    version: "v5.3 · 3.4 mm brad clearance",
     category: "micro:bit",
     status: "Fit confirmed",
     statusTone: "fit",
@@ -216,11 +216,11 @@ const modules: Module[] = [
     learning: "Keeps the display visible while preserving access to P0, P1, P2, 3V, and GND during testing.",
     projectFit: ["P2.4", "P3.2", "Testbed organization"],
     hardware: ["micro:bit", "Included 56 mm clip guide STL"],
-    parts: ["Exact-guide LEGO stand", "Microbit Alligator Clip Guide v2", "Attribution notice"],
-    teacherNote: "The included guide measures 5.85 × 56.0 × 11.2 mm and drops into the stand's continuous 56.8 mm cradle. Its CC BY-SA attribution is included in the download.",
+    parts: ["Exact-guide LEGO stand", "Microbit Alligator Clip Guide v2", "3.2 / 3.4 / 3.6 mm brad coupon"],
+    teacherNote: "The guide fit and Coupon-F underside are unchanged. Cardboard v5.3 enlarges the measured-fastener opening to 3.4 × 1.8 mm and includes a three-size coupon.",
     studentTip: "Slide the micro:bit into the guide first, then lower both into the stand with the LED display facing the open front.",
     download: "/downloads/microbit-original-guide-stand-v5-1.zip",
-    cardboardDownload: "/downloads/microbit-original-guide-stand-v5-2-dual-mount-3dot.zip",
+    cardboardDownload: "/downloads/microbit-original-guide-stand-v5-3-dual-mount-3p4.zip",
   },
   {
     id: "servo-horizontal",
@@ -354,7 +354,9 @@ const developmentHistory: Record<string, HistoryItem[]> = {
   ],
   microbit: [
     { version: "v3-v5", problem: "Estimated guide orientation and pockets did not match the original printed guide.", change: "Measured the actual guide mesh and built a continuous 6.7 x 56.8 mm open-top cradle.", result: "The stand now matches the exact 5.85 x 56 x 11.2 mm guide geometry.", state: "Superseded" },
-    { version: "v5.1", problem: "The exact-guide stand still used the earlier LEGO underside.", change: "Added the Coupon-F underside and bundled the exact guide with its attribution.", result: "Current fit-confirmed recommendation; pilot the final combined stand once.", state: "Current" },
+    { version: "v5.1", problem: "The exact-guide stand still used the earlier LEGO underside.", change: "Added the Coupon-F underside and bundled the exact guide with its attribution.", result: "Guide and LEGO fit recommendation retained.", state: "Superseded" },
+    { version: "v5.2", problem: "The first cardboard version used a 2.8 × 1.4 mm slit.", change: "Added two internal recessed brad locations without changing the LEGO underside.", result: "Physical test failed: the measured 3.0 mm fastener legs would not pass through the printed opening.", state: "Superseded" },
+    { version: "v5.3", problem: "The cardboard fastener opening was undersized for the classroom brass fastener.", change: "Enlarged both slits to 3.4 × 1.8 mm and added a 3.2 / 3.4 / 3.6 mm fit coupon.", result: "Current recommendation; revised slit fit requires physical confirmation.", state: "Current" },
   ],
   "servo-horizontal": [
     { version: "Coupon-v1.2", problem: "The servo body fit at 12.4 mm, but it could slide out and wire routing forced one orientation.", change: "Added retention, larger horn-side gaps, and wire exits at both ends.", result: "Body width and 1.8 mm pilot dimensions were physically confirmed.", state: "Superseded" },
@@ -622,7 +624,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>All fifteen module designs now have an optional cardboard version. Nine larger modules place two 2.8 × 1.4 mm brad slits and recessed 8.5 mm head pockets inside the original footprint. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath, keeping their terminals, sensors, and servo channels unobstructed. Every original F-fit LEGO clutch point remains intact.</p>
+          <p>All fifteen module designs have an optional cardboard version. The micro:bit v5.3 uses measured-fastener clearance: two 3.4 × 1.8 mm slits plus a three-size fit coupon. The remaining larger prototypes retain their original internal slit geometry until the new clearance is physically confirmed. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath. Every original F-fit LEGO clutch point remains intact.</p>
         </div>
       </section>
 
