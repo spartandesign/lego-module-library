@@ -430,6 +430,7 @@ export function ModuleLibrary() {
         <nav aria-label="Primary navigation">
           <a href="#library">Library</a>
           <a href="#print-standard">Print standard</a>
+          <a href="#build-guides">Build guides</a>
           <a href="#classroom">Classroom use</a>
         </nav>
       </header>
@@ -625,6 +626,132 @@ export function ModuleLibrary() {
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
           <p>All fifteen module designs now use the physically confirmed two-dot brass-fastener opening: 3.4 × 1.8 mm, with recessed 8.5 mm head pockets. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath. Every package includes the confirmed fit coupon, and every original F-fit LEGO clutch point remains intact.</p>
+        </div>
+      </section>
+
+      <section className="build-guides" id="build-guides" aria-labelledby="build-guides-title">
+        <div className="build-guides-heading">
+          <p className="section-kicker">TEACHER BUILD GUIDES</p>
+          <h2 id="build-guides-title">Prepare durable classroom components in batches.</h2>
+          <p>
+            Use these preparation notes for the parts that need wiring or hardware before students begin. Soldering is
+            an adult or trained-teacher preparation task; students connect to the finished M3 terminals with alligator clips.
+          </p>
+        </div>
+
+        <article className="guide-card guide-card-featured">
+          <div className="guide-card-heading">
+            <div>
+              <p className="guide-label">FSR 402 · PART 30-81794</p>
+              <h3>Solder-tab pressure-sensor preparation</h3>
+            </div>
+            <span className="guide-badge">50-sensor batch</span>
+          </div>
+
+          <div className="guide-facts" aria-label="FSR 402 reference dimensions">
+            <div><strong>18.3 mm</strong><span>outer sensing disk</span></div>
+            <div><strong>14.68 mm</strong><span>active area</span></div>
+            <div><strong>7.62 mm</strong><span>solder-tab tail width</span></div>
+            <div><strong>0.46 mm</strong><span>nominal thickness</span></div>
+          </div>
+
+          <div className="guide-columns">
+            <div>
+              <h4>Consumables for 50 finished sensors</h4>
+              <ul className="supply-list">
+                <li><span>FSR 402, Interlink 30-81794</span><strong>50; buy 55 if possible</strong></li>
+                <li><span>Red 26–30 AWG stranded wire</span><strong>10 m / 33 ft</strong></li>
+                <li><span>Black 26–30 AWG stranded wire</span><strong>10 m / 33 ft</strong></li>
+                <li><span>1/8 in heat-shrink tubing</span><strong>2 m / 7 ft</strong></li>
+                <li><span>Lead-free rosin-core electronics solder</span><strong>100 g spool</strong></li>
+                <li><span>No-clean electronics flux</span><strong>1–2 pens</strong></li>
+                <li><span>Heat-resistant double-sided tape</span><strong>1 roll</strong></li>
+                <li><span>Kapton tape</span><strong>1 roll, optional</strong></li>
+              </ul>
+              <p className="guide-note">
+                Quantity assumes two 150 mm color-coded leads per sensor. Ten meters per color includes approximately
+                one-third extra for trimming and mistakes.
+              </p>
+            </div>
+
+            <div>
+              <h4>Reusable tools</h4>
+              <ul className="check-list">
+                <li>Temperature-controlled soldering station with a 1–2 mm chisel tip</li>
+                <li>Iron stand, brass tip cleaner, and silicone work mat</li>
+                <li>Fume extractor and safety glasses</li>
+                <li>26–30 AWG wire stripper and flush cutters</li>
+                <li>Flat heat-resistant fixture or helping hands</li>
+                <li>Small heat gun with a reducer nozzle</li>
+                <li>Digital multimeter for before-and-after checks</li>
+              </ul>
+              <div className="warning-box">
+                <strong>Protect the sensor.</strong>
+                <p>Do not solder inside the printed PLA module, solder to exposed silver traces, crease the tail, or heat the sensor with the heat gun.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="batch-workflow">
+            <h4>Batch workflow</h4>
+            <ol>
+              <li><span>01</span><p><strong>Cut and prepare.</strong> Make 50 red and 50 black 150 mm leads. Strip and pre-tin approximately 3 mm at one end.</p></li>
+              <li><span>02</span><p><strong>Hold the sensor flat.</strong> Secure it to a heat-resistant fixture with double-sided tape. Keep the sensing disk and tail unstressed.</p></li>
+              <li><span>03</span><p><strong>Pre-tin the tabs.</strong> Use no-clean flux and the shortest practical iron contact. Work on the supplied gold solder tabs only.</p></li>
+              <li><span>04</span><p><strong>Join one wire at a time.</strong> Reflow each pre-tinned wire to its tab using approximately 1–2 seconds of contact at a time.</p></li>
+              <li><span>05</span><p><strong>Insulate separately.</strong> Cover each joint with its own approximately 10 mm heat-shrink piece and direct hot air away from the tail.</p></li>
+              <li><span>06</span><p><strong>Test before mounting.</strong> Confirm continuity and verify that resistance decreases when the sensing disk is pressed.</p></li>
+              <li><span>07</span><p><strong>Install with strain relief.</strong> Clamp only insulated wire or heat-shrink. Never clamp the flexible tail or solder joints.</p></li>
+              <li><span>08</span><p><strong>Terminate at M3 hardware.</strong> Route the two wires to separate captive-nut terminals with large washers for alligator clips.</p></li>
+            </ol>
+          </div>
+
+          <div className="module-adaptation">
+            <h4>Pressure-module CAD adaptation</h4>
+            <p>
+              Keep the proven circular pocket, pressure plate, centered puck, guides, and hard stops. Widen the tail
+              channel to about 8.2 mm, replace the female-connector pocket with an open solder-joint bay, add two isolated
+              wire channels, and place the M3 terminals above the LEGO cavity. The strain-relief clamp must grip the
+              insulated leads—not the tabs.
+            </p>
+          </div>
+        </article>
+
+        <div className="guide-grid">
+          <article className="guide-card">
+            <p className="guide-label">SHARED ELECTRICAL HARDWARE</p>
+            <h3>M3 terminal stock for a classroom set</h3>
+            <ul className="check-list">
+              <li>M3 × 6 mm and M3 × 8 mm machine screws</li>
+              <li>Standard M3 hex nuts for captive pockets</li>
+              <li>9–12 mm outside-diameter M3 washers</li>
+              <li>26–30 AWG stranded hookup wire in several colors</li>
+              <li>Alligator leads with intact insulation</li>
+            </ul>
+            <p className="guide-note">For 50 two-terminal modules, stock at least 120 screws, 120 nuts, and 120 washers so damaged or lost hardware does not stop a class.</p>
+          </article>
+
+          <article className="guide-card">
+            <p className="guide-label">QUALITY CONTROL</p>
+            <h3>Check every prepared sensor twice</h3>
+            <ul className="check-list">
+              <li>Before mounting: inspect joints, insulation, and resistance response.</li>
+              <li>After mounting: confirm the tail stays flat and the wires cannot pull on the tabs.</li>
+              <li>With the platform installed: verify no-load and light-press readings.</li>
+              <li>Label failures and keep them out of the classroom-ready bin.</li>
+            </ul>
+          </article>
+
+          <article className="guide-card">
+            <p className="guide-label">WIRING</p>
+            <h3>Connect the pressure sensor as a divider</h3>
+            <ul className="check-list">
+              <li>One FSR terminal connects to 3V.</li>
+              <li>The other terminal connects to the shared signal/resistor junction.</li>
+              <li>The fixed resistor’s opposite terminal connects to GND.</li>
+              <li>The FSR itself is non-polarized; consistent wire colors simplify instruction.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
