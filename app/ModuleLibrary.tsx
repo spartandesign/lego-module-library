@@ -32,6 +32,7 @@ type Module = {
   teacherNote: string;
   studentTip: string;
   download: string;
+  dualMount?: boolean;
   cardboardDownload?: string;
   cardboardMount?: "internal" | "edge-tabs";
 };
@@ -150,40 +151,38 @@ const modules: Module[] = [
   {
     id: "resistor",
     title: "Compact Resistor Terminal",
-    version: "v2.1 · compact F-fit",
+    version: "v2.8 · confirmed dual mount",
     category: "Circuit building",
     status: "Fit confirmed",
     statusTone: "fit",
     image: "/images/resistor.png",
-    summary: "A protected ¼-watt resistor cradle with metal M3 terminals sized for one or two alligator clips.",
+    summary: "A protected ¼-watt resistor cradle with metal M3 terminals, an F-fit LEGO underside, and supportless cardboard tabs.",
     learning: "Moves repeated clip wear away from fragile resistor leads and makes voltage-divider junctions easier to see.",
     projectFit: ["P2.4", "P3.2", "Voltage divider"],
     hardware: ["47 kΩ ¼ W resistor", "2× M3 × 6", "2× M3 nuts", "2× washers"],
-    parts: ["Single compact F-fit base"],
-    teacherNote: "The 40 × 24 mm body is scaled to the resistor and uses captive metal nuts rather than threads cut into PLA.",
+    parts: ["F-fit dual-mount base", "Open brick-style brad tabs", "Raised + / − labels"],
+    teacherNote: "The v2.7 LEGO fit was physically reported excellent. Version 2.8 preserves that geometry and adds only raised polarity labels.",
     studentTip: "Loop each resistor lead beneath its washer and tighten gently. The shared terminal can accept clips on opposite sides.",
-    download: "/downloads/compact-resistor-module-v2-1.zip",
-    cardboardDownload: "/downloads/compact-resistor-module-v2-2-dual-mount-3p4.zip",
-    cardboardMount: "edge-tabs",
+    download: "/downloads/compact-resistor-module-v2-8-dual-mount-polarity.zip",
+    dualMount: true,
   },
   {
     id: "led",
     title: "Three-LED M3 Terminal Module",
-    version: "v2.3 · polarity labels",
+    version: "v2.5 · resistor-standard tabs",
     category: "Circuit building",
-    status: "Fit confirmed",
-    statusTone: "fit",
+    status: "Mechanism confirmed",
+    statusTone: "mechanism",
     image: "/images/led-module.png",
-    summary: "Three 5 mm LEDs are held together with clearly marked positive and negative M3 connection points.",
+    summary: "Three 5 mm LEDs use marked M3 connection points, the F-fit LEGO underside, and open cardboard-mount tabs.",
     learning: "Protects LED leads, keeps polarity visible, and gives alligator clips durable metal contact points.",
     projectFit: ["P2.4", "P3.2", "Visual output"],
     hardware: ["3× 5 mm LEDs", "6× M3 terminals", "Current-limiting resistors"],
-    parts: ["Single F-fit labeled base"],
-    teacherNote: "The LED body and terminal layout worked physically; the underside was updated to the project’s Coupon-F fit.",
+    parts: ["F-fit dual-mount base", "Six M3 terminals", "Open brick-style brad tabs"],
+    teacherNote: "The LED holder and terminal layout worked physically. Version 2.5 preserves them and applies the resistor module’s open-tab construction; pilot one before a class set.",
     studentTip: "Match the longer LED lead to + before bending the leads toward the M3 terminals. Never omit the required resistor.",
-    download: "/downloads/three-led-m3-module-v2-3.zip",
-    cardboardDownload: "/downloads/three-led-m3-module-v2-4-dual-mount-3p4.zip",
-    cardboardMount: "edge-tabs",
+    download: "/downloads/three-led-m3-module-v2-5-dual-mount-open-tabs.zip",
+    dualMount: true,
   },
   {
     id: "buzzer",
@@ -342,11 +341,15 @@ const developmentHistory: Record<string, HistoryItem[]> = {
   ],
   resistor: [
     { version: "v1-v2", problem: "The first body was too large and printed holes were too loose to hold screws.", change: "Reduced the footprint to 40 x 24 mm and changed to captive metal M3 nuts.", result: "Compact terminal arrangement and nut method were physically successful.", state: "Superseded" },
-    { version: "v2.1", problem: "The compact model still needed the preferred LEGO clutch.", change: "Rebuilt the underside with the Coupon-F interface.", result: "Current recommendation; terminal and LEGO fits are known, combined revision should be piloted once.", state: "Current" },
+    { version: "v2.1-v2.6", problem: "Early cardboard extensions obstructed LEGO seating, printed poorly, or interfered with the M3 nut-loading path.", change: "Removed the internal partition and changed to open, brick-style external tabs with no floor below the brad head.", result: "Superseded by the physically tested v2.7 geometry.", state: "Superseded" },
+    { version: "v2.7", problem: "The dual-mount version needed dependable LEGO clutch and accessible end-loaded nuts.", change: "Combined the F-fit underside, open tabs, 3.4 × 1.8 mm slits, and unobstructed captive-nut access.", result: "Physical test: LEGO fit was reported excellent.", state: "Superseded" },
+    { version: "v2.8", problem: "Students still needed terminal polarity visible from above.", change: "Added raised + and − symbols without changing the confirmed v2.7 mounting geometry.", result: "Current recommendation; the mechanical fit is inherited from the confirmed v2.7 base.", state: "Current" },
   ],
   led: [
     { version: "v2-v2.2", problem: "The LED holder worked, but the first LEGO underside did not; polarity also needed to be obvious.", change: "Added durable M3 terminals and + / - markings.", result: "LED bodies and terminal arrangement worked physically.", state: "Superseded" },
-    { version: "v2.3", problem: "The otherwise successful top needed the preferred clutch geometry.", change: "Applied the Coupon-F underside without changing the LED layout.", result: "Current fit-confirmed recommendation; pilot the final underside combination before quantity printing.", state: "Current" },
+    { version: "v2.3", problem: "The otherwise successful top needed the preferred clutch geometry.", change: "Applied the Coupon-F underside without changing the LED layout.", result: "LED and LEGO features were retained as the working foundation.", state: "Superseded" },
+    { version: "v2.4", problem: "The first cardboard adaptation used the older edge-tab construction.", change: "Added brass-fastener tabs, but their enclosed underside was not the final supportless standard.", result: "Superseded before classroom confirmation.", state: "Superseded" },
+    { version: "v2.5", problem: "The LED module needed the same open, unobstructed cardboard mounting learned from the resistor module.", change: "Added 3.4 × 1.8 mm open brick-style tabs on the ends while leaving all six M3 nut slots accessible.", result: "Current recommendation; LED mechanism is confirmed and the new dual-mount combination needs one pilot print.", state: "Current" },
   ],
   buzzer: [
     { version: "v1", problem: "The buzzer terminal holes accepted M3 hardware loosely, but the module did not fit the testbed plate.", change: "Reworked the underside around the shared skirt and clutch experiments.", result: "Superseded by the Coupon-F result.", state: "Superseded" },
@@ -583,15 +586,15 @@ export function ModuleLibrary() {
                 </details>
 
                 <a className="download-link" href={asset(module.download)} download>
-                  Download print pack <span aria-hidden="true">↓</span>
+                  {module.dualMount ? "Download LEGO + cardboard pack" : "Download print pack"} <span aria-hidden="true">↓</span>
                 </a>
                 {module.cardboardDownload ? (
                   <a className="download-link cardboard-download" href={asset(module.cardboardDownload)} download>
                     {module.cardboardMount === "edge-tabs" ? "Cardboard edge-tab prototype" : "Cardboard dual-mount prototype"} <span aria-hidden="true">↓</span>
                   </a>
-                ) : (
+                ) : !module.dualMount ? (
                   <p className="mount-note">LEGO-only: two recessed brad heads do not safely fit this compact layout.</p>
-                )}
+                ) : null}
               </div>
             </article>
           ))}
@@ -609,12 +612,12 @@ export function ModuleLibrary() {
         <div className="standard-intro">
           <p className="section-kicker">SHARED PRINT STANDARD</p>
           <h2 id="print-title">One reliable starting profile.</h2>
-          <p>These settings prioritize durable classroom handling, clean M3 features, and consistent LEGO clutch on a Bambu A1 mini.</p>
+          <p>Begin with Bambu Studio&apos;s 0.20 mm Standard profile and leave the remaining process settings at their defaults.</p>
         </div>
         <div className="settings-grid">
           <div><strong>0.20 mm</strong><span>Standard layer profile</span></div>
-          <div><strong>4 walls</strong><span>Strength at towers and terminals</span></div>
-          <div><strong>20% gyroid</strong><span>General-purpose infill</span></div>
+          <div><strong>Default walls</strong><span>Use the selected Bambu profile</span></div>
+          <div><strong>Default infill</strong><span>No module-specific override</span></div>
           <div><strong>Supports off</strong><span>Use supplied orientation</span></div>
           <div><strong>PLA</strong><span>First classroom prototype</span></div>
           <div><strong>0.4 mm</strong><span>Standard nozzle</span></div>
@@ -625,7 +628,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>All fifteen module designs now use the physically confirmed two-dot brass-fastener opening: 3.4 × 1.8 mm, with recessed 8.5 mm head pockets. Six compact designs use integrated edge tabs with loose LEGO-stud clearance sockets underneath. Every package includes the confirmed fit coupon, and every original F-fit LEGO clutch point remains intact.</p>
+          <p>The compact resistor v2.8 is the current physically fit-confirmed reference: Coupon-F LEGO clutch, open brick-style tabs, and 3.4 × 1.8 mm brass-fastener slits. The LED v2.5 applies the same construction but still needs one pilot print. Older dual-mount packages remain prototypes and will be replaced sequentially as their mechanisms are reviewed.</p>
         </div>
       </section>
 
