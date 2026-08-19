@@ -18,6 +18,7 @@ test("exports the module library landing page", async () => {
   assert.match(html, /v2\.2 · open tabs \+ solid supports/);
   assert.match(html, /v1\.5 · solid supports \+ anchor feet/);
   assert.match(html, /v2\.0 · solid supports \+ anchor feet/);
+  assert.match(html, /Do not print the old base with circular cardboard ears/);
   assert.match(html, /For teachers/);
   assert.match(html, /For students/);
 });
@@ -46,6 +47,21 @@ test("ships every public module download and preview", async () => {
       import.meta.url,
     ),
   );
+  for (const supersededPotentiometerZip of [
+    "potentiometer-control-dial-module-v1-1-dual-mount-3p4.zip",
+    "potentiometer-control-dial-module-v1-2-open-tabs-anchor-feet.zip",
+    "potentiometer-control-dial-module-v1-dual-mount-edge-tabs-3dot.zip",
+    "potentiometer-control-dial-module-v1.zip",
+  ]) {
+    await assert.rejects(
+      access(
+        new URL(
+          `../public/downloads/${supersededPotentiometerZip}`,
+          import.meta.url,
+        ),
+      ),
+    );
+  }
   await access(
     new URL(
       "../public/downloads/three-led-m3-module-v2-6-open-tabs-anchor-feet.zip",
