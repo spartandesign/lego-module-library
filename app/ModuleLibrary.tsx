@@ -131,21 +131,20 @@ const modules: Module[] = [
   {
     id: "potentiometer",
     title: "Potentiometer Control Dial",
-    version: "v1 · 3-terminal input",
+    version: "v1.2 · open tabs + anchor feet",
     category: "Sensors & inputs",
     status: "Prototype",
     statusTone: "prototype",
     image: "/images/potentiometer.png",
-    summary: "A supportless vertical mount for a common 16 mm, 10 kΩ potentiometer with three protected M3 terminals.",
+    summary: "A supportless vertical mount for a common 16 mm, 10 kΩ potentiometer with three protected M3 terminals, Coupon-F anchor feet, and open cardboard tabs.",
     learning: "Provides a continuous analog dial for combinations, thresholds, LED brightness, servo position, or interaction choices.",
     projectFit: ["P2.4", "P3.2", "Continuous control"],
     hardware: ["16 mm 10 kΩ potentiometer", "3× M3 × 6", "3× M3 nuts", "Short wires"],
-    parts: ["F-fit base", "Combination knob", "Accessible wing knob", "Activity guide"],
-    teacherNote: "The printed base uses a 7.8 mm bushing opening; start with the included 5.9 mm knob bore.",
+    parts: ["F-fit dual-mount base", "4 Coupon-F C anchor feet", "Combination knob", "Accessible wing knob", "Fit coupons + activity guide"],
+    teacherNote: "All 15 original underside tube bores remain open. The four corner Coupon-F tubes gain aligned 0.60 mm C-shaped first-layer anchor pads. Open long-side tabs use 3.4 × 1.8 mm brass-fastener slits and leave all three M3 nut paths clear. Start with the 5.9 mm knob bore and pilot one complete assembly.",
     studentTip: "Connect the center pin to SIG. Swap the two outside connections if clockwise rotation changes the value the wrong way.",
-    download: "/downloads/potentiometer-control-dial-module-v1.zip",
-    cardboardDownload: "/downloads/potentiometer-control-dial-module-v1-1-dual-mount-3p4.zip",
-    cardboardMount: "edge-tabs",
+    download: "/downloads/potentiometer-control-dial-module-v1-2-open-tabs-anchor-feet.zip",
+    dualMount: true,
   },
   {
     id: "resistor",
@@ -168,19 +167,19 @@ const modules: Module[] = [
   {
     id: "led",
     title: "Three-LED M3 Terminal Module",
-    version: "v2.5 · resistor-standard tabs",
+    version: "v2.6 · open tabs + anchor feet",
     category: "Circuit building",
     status: "Mechanism confirmed",
     statusTone: "mechanism",
     image: "/images/led-module.png",
-    summary: "Three 5 mm LEDs use marked M3 connection points, the F-fit LEGO underside, and open cardboard-mount tabs.",
+    summary: "Three 5 mm LEDs use marked M3 connection points, split-aligned Coupon-F anchor feet, and open cardboard-mount paths.",
     learning: "Protects LED leads, keeps polarity visible, and gives alligator clips durable metal contact points.",
     projectFit: ["P2.4", "P3.2", "Visual output"],
     hardware: ["3× 5 mm LEDs", "6× M3 terminals", "Current-limiting resistors"],
-    parts: ["F-fit dual-mount base", "Six M3 terminals", "Open brick-style brad tabs"],
-    teacherNote: "The LED holder and terminal layout worked physically. Version 2.5 preserves them and applies the resistor module’s open-tab construction; pilot one before a class set.",
+    parts: ["F-fit dual-mount base", "Six M3 terminals", "Six Coupon-F C anchor feet", "Open brick-style brad tabs"],
+    teacherNote: "The LED holder and terminal layout worked physically. Version 2.6 keeps all 24 original tube centerlines open, adds six aligned 0.60 mm C-shaped anchor pads, and retains the v2.5 open tab cavities and six unobstructed M3 nut paths. Pilot one before a class set.",
     studentTip: "Match the longer LED lead to + before bending the leads toward the M3 terminals. Never omit the required resistor.",
-    download: "/downloads/three-led-m3-module-v2-5-dual-mount-open-tabs.zip",
+    download: "/downloads/three-led-m3-module-v2-6-open-tabs-anchor-feet.zip",
     dualMount: true,
   },
   {
@@ -205,20 +204,20 @@ const modules: Module[] = [
   {
     id: "microbit",
     title: "micro:bit Original-Guide Stand",
-    version: "v5.3 · 3.4 mm brad clearance",
+    version: "v5.4 · internal paths + anchor feet",
     category: "micro:bit",
-    status: "Fit confirmed",
-    statusTone: "fit",
+    status: "Mechanism confirmed",
+    statusTone: "mechanism",
     image: "/images/microbit-stand.png",
-    summary: "An upright LEGO stand packaged with the exact 5.85 × 56 mm alligator-clip guide used to design its cradle.",
+    summary: "An upright exact-guide stand with split-aligned Coupon-F anchor feet and compact supportless cardboard-fastener paths inside its LEGO footprint.",
     learning: "Keeps the display visible while preserving access to P0, P1, P2, 3V, and GND during testing.",
     projectFit: ["P2.4", "P3.2", "Testbed organization"],
-    hardware: ["micro:bit", "Included 56 mm clip guide STL"],
-    parts: ["Exact-guide LEGO stand", "Microbit Alligator Clip Guide v2", "3.2 / 3.4 / 3.6 mm brad coupon"],
-    teacherNote: "The guide fit and Coupon-F underside are unchanged. Cardboard v5.3 enlarges the measured-fastener opening to 3.4 × 1.8 mm and includes a three-size coupon.",
+    hardware: ["micro:bit", "Included 56 mm clip guide STL", "2× classroom brass fasteners"],
+    parts: ["Exact-guide dual-mount stand", "Microbit Alligator Clip Guide v2", "6 Coupon-F C anchor feet", "3.2 / 3.4 / 3.6 mm brad coupon"],
+    teacherNote: "Version 5.4 preserves the confirmed guide and stand geometry, keeps all 45 underside tube centerlines open, and adds six aligned 0.60 mm C-shaped first-layer pads. Its two top-open 3.4 × 1.8 mm internal fastener paths need no supports or external tabs. Pilot one complete dual-mount assembly before a class set.",
     studentTip: "Slide the micro:bit into the guide first, then lower both into the stand with the LED display facing the open front.",
-    download: "/downloads/microbit-original-guide-stand-v5-1.zip",
-    cardboardDownload: "/downloads/microbit-original-guide-stand-v5-3-dual-mount-3p4.zip",
+    download: "/downloads/microbit-original-guide-stand-v5-4-internal-paths-anchor-feet.zip",
+    dualMount: true,
   },
   {
     id: "servo-horizontal",
@@ -341,7 +340,9 @@ const developmentHistory: Record<string, HistoryItem[]> = {
   ],
   potentiometer: [
     { version: "Concept", problem: "Students needed a repeatable continuous input for both curriculum projects.", change: "Selected a common 16 mm, 10 kOhm potentiometer with three visible terminals.", result: "Control and wiring requirements established.", state: "Superseded" },
-    { version: "v1", problem: "The shaft, bushing, knob, and terminal access had to remain supportless.", change: "Added a vertical mount, two knob choices, and three M3 terminals.", result: "Current prototype; print and component fit remain to be confirmed.", state: "Current" },
+    { version: "v1", problem: "The shaft, bushing, knob, and terminal access had to remain supportless.", change: "Added a vertical mount, two knob choices, three M3 terminals, and the Coupon-F underside.", result: "Working design foundation; physical component and full-assembly confirmation remain pending.", state: "Superseded" },
+    { version: "v1.1", problem: "The first cardboard adaptation kept enclosed edge tabs on the same ends as the M3 nut-loading paths.", change: "Widened the brass-fastener slit to 3.4 × 1.8 mm but retained the obstructed tab layout.", result: "Superseded before classroom confirmation; do not use as the current dual-mount base.", state: "Superseded" },
+    { version: "v1.2", problem: "The module needed stronger first-layer anchoring and supportless cardboard mounting without changing its hollow tube grid or blocking any M3 nut path.", change: "Added four 0.60 mm C-shaped feet aligned to the Coupon-F splits, kept all 15 original bores open, and moved two open brick-style tabs to the long sides with portals into the LEGO underside.", result: "Current watertight, clearance-validated prototype; pilot the potentiometer, knob, M3 hardware, LEGO clutch, anchor feet, and cardboard fasteners before classroom quantities.", state: "Current" },
   ],
   resistor: [
     { version: "v1-v2", problem: "The first body was too large and printed holes were too loose to hold screws.", change: "Reduced the footprint to 40 x 24 mm and changed to captive metal M3 nuts.", result: "Compact terminal arrangement and nut method were physically successful.", state: "Superseded" },
@@ -353,7 +354,8 @@ const developmentHistory: Record<string, HistoryItem[]> = {
     { version: "v2-v2.2", problem: "The LED holder worked, but the first LEGO underside did not; polarity also needed to be obvious.", change: "Added durable M3 terminals and + / - markings.", result: "LED bodies and terminal arrangement worked physically.", state: "Superseded" },
     { version: "v2.3", problem: "The otherwise successful top needed the preferred clutch geometry.", change: "Applied the Coupon-F underside without changing the LED layout.", result: "LED and LEGO features were retained as the working foundation.", state: "Superseded" },
     { version: "v2.4", problem: "The first cardboard adaptation used the older edge-tab construction.", change: "Added brass-fastener tabs, but their enclosed underside was not the final supportless standard.", result: "Superseded before classroom confirmation.", state: "Superseded" },
-    { version: "v2.5", problem: "The LED module needed the same open, unobstructed cardboard mounting learned from the resistor module.", change: "Added 3.4 × 1.8 mm open brick-style tabs on the ends while leaving all six M3 nut slots accessible.", result: "Current recommendation; LED mechanism is confirmed and the new dual-mount combination needs one pilot print.", state: "Current" },
+    { version: "v2.5", problem: "The LED module needed the same open, unobstructed cardboard mounting learned from the resistor module.", change: "Added 3.4 × 1.8 mm open brick-style tabs on the ends while leaving all six M3 nut slots accessible.", result: "Established the correct tab and portal geometry; superseded by the anchored first-layer revision before a full dual-mount pilot.", state: "Superseded" },
+    { version: "v2.6", problem: "The six Coupon-F rings still began as narrow first-layer islands even though the tab paths were already correct.", change: "Added six 0.60 mm C-shaped pads aligned to the inward clutch splits while preserving all 24 original tube centerlines, both open tab portals, and every LED and M3 opening.", result: "Current watertight, clearance-validated recommendation; the LED mechanism is confirmed and the combined anchor-foot dual mount needs one pilot print.", state: "Current" },
   ],
   buzzer: [
     { version: "v1", problem: "The buzzer terminal holes accepted M3 hardware loosely, but the module did not fit the testbed plate.", change: "Reworked the underside around the shared skirt and clutch experiments.", result: "Superseded by the Coupon-F result.", state: "Superseded" },
@@ -363,7 +365,8 @@ const developmentHistory: Record<string, HistoryItem[]> = {
     { version: "v3-v5", problem: "Estimated guide orientation and pockets did not match the original printed guide.", change: "Measured the actual guide mesh and built a continuous 6.7 x 56.8 mm open-top cradle.", result: "The stand now matches the exact 5.85 x 56 x 11.2 mm guide geometry.", state: "Superseded" },
     { version: "v5.1", problem: "The exact-guide stand still used the earlier LEGO underside.", change: "Added the Coupon-F underside and bundled the exact guide with its attribution.", result: "Guide and LEGO fit recommendation retained.", state: "Superseded" },
     { version: "v5.2", problem: "The first cardboard version used a 2.8 × 1.4 mm slit.", change: "Added two internal recessed brad locations without changing the LEGO underside.", result: "Physical test failed: the measured 3.0 mm fastener legs would not pass through the printed opening.", state: "Superseded" },
-    { version: "v5.3", problem: "The cardboard fastener opening was undersized for the classroom brass fastener.", change: "Enlarged both slits to 3.4 × 1.8 mm and added a 3.2 / 3.4 / 3.6 mm fit coupon.", result: "Current recommendation; revised slit fit requires physical confirmation.", state: "Current" },
+    { version: "v5.3", problem: "The cardboard fastener opening was undersized for the classroom brass fastener.", change: "Enlarged both internal slits to 3.4 × 1.8 mm and added a 3.2 / 3.4 / 3.6 mm fit coupon.", result: "Established the corrected compact path geometry; superseded by the anchored first-layer revision before physical confirmation.", state: "Superseded" },
+    { version: "v5.4", problem: "The six Coupon-F rings still began as narrow first-layer islands even though the internal cardboard paths already printed without support.", change: "Added six 0.60 mm C-shaped pads aligned with the inward clutch splits while preserving all 45 hollow tube centerlines, both top-open brad paths, the compact footprint, and all exact-guide geometry.", result: "Current watertight, clearance-validated recommendation; the guide and stand mechanism are confirmed, and the combined anchor-foot dual mount needs one pilot print.", state: "Current" },
   ],
   "servo-horizontal": [
     { version: "Coupon-v1.2", problem: "The servo body fit at 12.4 mm, but it could slide out and wire routing forced one orientation.", change: "Added retention, larger horn-side gaps, and wire exits at both ends.", result: "Body width and 1.8 mm pilot dimensions were physically confirmed.", state: "Superseded" },
@@ -632,7 +635,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>The compact resistor v2.8 is the current physically fit-confirmed reference: Coupon-F LEGO clutch, open brick-style tabs, and 3.4 × 1.8 mm brass-fastener slits. The LED v2.5 applies the same construction but still needs one pilot print. Older dual-mount packages remain prototypes and will be replaced sequentially as their mechanisms are reviewed.</p>
+          <p>The compact resistor v2.8 is the current physically fit-confirmed reference: Coupon-F LEGO clutch, open brick-style tabs, and 3.4 × 1.8 mm brass-fastener slits. The LED v2.6 retains that open-tab construction and adds split-aligned first-layer anchor feet, but still needs one pilot print. Older dual-mount packages remain prototypes and will be replaced sequentially as their mechanisms are reviewed.</p>
         </div>
       </section>
 

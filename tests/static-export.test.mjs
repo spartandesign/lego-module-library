@@ -12,6 +12,9 @@ test("exports the module library landing page", async () => {
   assert.match(html, /Build the interaction/);
   assert.match(html, /Flex-Sensor Paddle/);
   assert.match(html, /Upright Dashboard Gauge/);
+  assert.match(html, /v1\.2 · open tabs \+ anchor feet/);
+  assert.match(html, /v2\.6 · open tabs \+ anchor feet/);
+  assert.match(html, /v5\.4 · internal paths \+ anchor feet/);
   assert.match(html, /For teachers/);
   assert.match(html, /For students/);
 });
@@ -34,6 +37,24 @@ test("ships every public module download and preview", async () => {
 
   await access(new URL("../public/.nojekyll", import.meta.url));
   await access(new URL("../public/og-module-library.png", import.meta.url));
+  await access(
+    new URL(
+      "../public/downloads/potentiometer-control-dial-module-v1-2-open-tabs-anchor-feet.zip",
+      import.meta.url,
+    ),
+  );
+  await access(
+    new URL(
+      "../public/downloads/three-led-m3-module-v2-6-open-tabs-anchor-feet.zip",
+      import.meta.url,
+    ),
+  );
+  await access(
+    new URL(
+      "../public/downloads/microbit-original-guide-stand-v5-4-internal-paths-anchor-feet.zip",
+      import.meta.url,
+    ),
+  );
   await access(new URL("../.github/workflows/deploy-pages.yml", import.meta.url));
   await access(root);
 });
