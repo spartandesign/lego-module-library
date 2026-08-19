@@ -12,9 +12,12 @@ test("exports the module library landing page", async () => {
   assert.match(html, /Build the interaction/);
   assert.match(html, /Flex-Sensor Paddle/);
   assert.match(html, /Upright Dashboard Gauge/);
-  assert.match(html, /v1\.2 · open tabs \+ anchor feet/);
+  assert.match(html, /v1\.3 · solid supports \+ anchor feet/);
   assert.match(html, /v2\.6 · open tabs \+ anchor feet/);
   assert.match(html, /v5\.4 · internal paths \+ anchor feet/);
+  assert.match(html, /v2\.2 · open tabs \+ solid supports/);
+  assert.match(html, /v1\.5 · solid supports \+ anchor feet/);
+  assert.match(html, /v2\.0 · solid supports \+ anchor feet/);
   assert.match(html, /For teachers/);
   assert.match(html, /For students/);
 });
@@ -39,7 +42,7 @@ test("ships every public module download and preview", async () => {
   await access(new URL("../public/og-module-library.png", import.meta.url));
   await access(
     new URL(
-      "../public/downloads/potentiometer-control-dial-module-v1-2-open-tabs-anchor-feet.zip",
+      "../public/downloads/potentiometer-control-dial-module-v1-3-solid-supports-anchor-feet.zip",
       import.meta.url,
     ),
   );
@@ -55,6 +58,16 @@ test("ships every public module download and preview", async () => {
       import.meta.url,
     ),
   );
+  for (const moduleZip of [
+    "piezo-buzzer-module-v2-2-open-tabs-solid-supports-anchor-feet.zip",
+    "sg90-horizontal-cradle-v1-5-internal-paths-solid-supports-anchor-feet.zip",
+    "sg90-vertical-cradle-v1-2-open-tabs-solid-supports-anchor-feet.zip",
+    "sg90-upright-dashboard-gauge-v2-0-solid-supports-anchor-feet.zip",
+    "sg90-latch-deadbolt-module-v1-2-solid-supports-anchor-feet.zip",
+    "sg90-door-flap-linkage-module-v1-2-solid-supports-anchor-feet.zip",
+  ]) {
+    await access(new URL(`../public/downloads/${moduleZip}`, import.meta.url));
+  }
   await access(new URL("../.github/workflows/deploy-pages.yml", import.meta.url));
   await access(root);
 });

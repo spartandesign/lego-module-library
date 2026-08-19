@@ -141,7 +141,7 @@ const modules: Module[] = [
     projectFit: ["P2.4", "P3.2", "Continuous control"],
     hardware: ["16 mm 10 kΩ potentiometer", "3× M3 × 6", "3× M3 nuts", "Short wires"],
     parts: ["F-fit dual-mount base", "11 solid roof supports", "4 Coupon-F C anchor feet", "Open brick-style brad tabs", "Two knobs + fit coupons"],
-    teacherNote: "A physical v1.2 print exposed failed bridges across the hollow underside. Version 1.3 fills the 11 non-gripping between-stud tube centers through the cavity roof while keeping the four corner Coupon-F bores open with aligned 0.60 mm C anchors. The open long-side tabs and all three M3 nut paths remain clear. Pilot one complete assembly before quantities.",
+    teacherNote: "Do not print the old base with circular cardboard ears: its end tab blocks the middle M3 nut-loading path. Version 1.3 uses rectangular open tabs on the long sides, fills the 11 non-gripping between-stud centers through the cavity roof, and keeps the four corner Coupon-F bores open with aligned C anchors. All three M3 nuts load from the unobstructed short end. Pilot one complete assembly before quantities.",
     studentTip: "Connect the center pin to SIG. Swap the two outside connections if clockwise rotation changes the value the wrong way.",
     download: "/downloads/potentiometer-control-dial-module-v1-3-solid-supports-anchor-feet.zip",
     dualMount: true,
@@ -340,7 +340,8 @@ const developmentHistory: Record<string, HistoryItem[]> = {
     { version: "Concept", problem: "Students needed a repeatable continuous input for both curriculum projects.", change: "Selected a common 16 mm, 10 kOhm potentiometer with three visible terminals.", result: "Control and wiring requirements established.", state: "Superseded" },
     { version: "v1", problem: "The shaft, bushing, knob, and terminal access had to remain supportless.", change: "Added a vertical mount, two knob choices, three M3 terminals, and the Coupon-F underside.", result: "Working design foundation; physical component and full-assembly confirmation remain pending.", state: "Superseded" },
     { version: "v1.1", problem: "The first cardboard adaptation kept enclosed edge tabs on the same ends as the M3 nut-loading paths.", change: "Widened the brass-fastener slit to 3.4 × 1.8 mm but retained the obstructed tab layout.", result: "Superseded before classroom confirmation; do not use as the current dual-mount base.", state: "Superseded" },
-    { version: "v1.2", problem: "The module needed stronger first-layer anchoring and supportless cardboard mounting without changing its hollow tube grid or blocking any M3 nut path.", change: "Added four 0.60 mm C-shaped feet aligned to the Coupon-F splits, kept all 15 original bores open, and moved two open brick-style tabs to the long sides with portals into the LEGO underside.", result: "Current watertight, clearance-validated prototype; pilot the potentiometer, knob, M3 hardware, LEGO clutch, anchor feet, and cardboard fasteners before classroom quantities.", state: "Current" },
+    { version: "v1.2", problem: "The module needed stronger first-layer anchoring and supportless cardboard mounting without blocking any M3 nut path.", change: "Added four split-aligned C feet, kept all 15 tube bores hollow, and moved open brick-style tabs to the long sides.", result: "Physical support-free print failed: long cavity-roof bridges collapsed into loose strands because the 11 non-gripping support centers were hollow.", state: "Superseded" },
+    { version: "v1.3", problem: "The physically failed roof needed local support without blocking LEGO studs or the four compliant clutch bores.", change: "Filled all 11 non-gripping between-stud tube centers through the roof, retained four open Coupon-F bores with aligned C anchors, and preserved both open tabs and every M3 path.", result: "Current watertight, clearance-validated correction; pilot the full potentiometer and LEGO/cardboard assembly before classroom quantities.", state: "Current" },
   ],
   resistor: [
     { version: "v1-v2", problem: "The first body was too large and printed holes were too loose to hold screws.", change: "Reduced the footprint to 40 x 24 mm and changed to captive metal M3 nuts.", result: "Compact terminal arrangement and nut method were physically successful.", state: "Superseded" },
@@ -357,7 +358,9 @@ const developmentHistory: Record<string, HistoryItem[]> = {
   ],
   buzzer: [
     { version: "v1", problem: "The buzzer terminal holes accepted M3 hardware loosely, but the module did not fit the testbed plate.", change: "Reworked the underside around the shared skirt and clutch experiments.", result: "Superseded by the Coupon-F result.", state: "Superseded" },
-    { version: "v2", problem: "The final buzzer body and terminal spacing still needed the proven LEGO interface.", change: "Applied the F-fit bottom and retained 19.5 mm terminal spacing.", result: "Current prototype; verify the actual buzzer board before classroom quantities.", state: "Current" },
+    { version: "v2.0", problem: "The final buzzer body and terminal spacing still needed the preferred LEGO interface.", change: "Applied the F-fit bottom and retained 19.5 mm terminal spacing.", result: "Established the current terminal and component foundation.", state: "Superseded" },
+    { version: "v2.1", problem: "The buzzer needed a cardboard mounting option.", change: "Added 3.4 × 1.8 mm slits to enclosed circular edge tabs.", result: "Superseded because the tabs began as annular islands and retained hidden undersides.", state: "Superseded" },
+    { version: "v2.2", problem: "The hollow roof supports and enclosed tabs were not suitable for dependable support-free printing.", change: "Made the four non-gripping tube centers solid, added four split-aligned C anchors, and replaced round tabs with open brick-style paths while preserving both M3 nut tunnels.", result: "Current watertight prototype; pilot the actual buzzer, LEGO clutch, cardboard fasteners, electrical contact, and sound output.", state: "Current" },
   ],
   microbit: [
     { version: "v3-v5", problem: "Estimated guide orientation and pockets did not match the original printed guide.", change: "Measured the actual guide mesh and built a continuous 6.7 x 56.8 mm open-top cradle.", result: "The stand now matches the exact 5.85 x 56 x 11.2 mm guide geometry.", state: "Superseded" },
@@ -368,23 +371,33 @@ const developmentHistory: Record<string, HistoryItem[]> = {
   ],
   "servo-horizontal": [
     { version: "Coupon-v1.2", problem: "The servo body fit at 12.4 mm, but it could slide out and wire routing forced one orientation.", change: "Added retention, larger horn-side gaps, and wire exits at both ends.", result: "Body width and 1.8 mm pilot dimensions were physically confirmed.", state: "Superseded" },
-    { version: "v1.3", problem: "The servo needed label-up installation in either direction.", change: "Added dual horn gaps, central wire relief, and a retaining strap.", result: "Current fit-confirmed foundation; mechanism-specific attachments still require testing.", state: "Current" },
+    { version: "v1.3", problem: "The servo needed label-up installation in either direction.", change: "Added dual horn gaps, central wire relief, and a retaining strap.", result: "Fit-confirmed servo foundation retained by later versions.", state: "Superseded" },
+    { version: "v1.4", problem: "The confirmed cradle needed cardboard mounting inside its footprint.", change: "Added two top-open 3.4 × 1.8 mm internal fastener paths.", result: "Path geometry retained; hollow non-gripping roof supports were superseded after the potentiometer print failure.", state: "Superseded" },
+    { version: "v1.5", problem: "Twenty-nine hollow support centers left repeated circular bridges beneath the cavity roof.", change: "Made every non-gripping center solid and added six split-aligned C anchors without changing the servo, strap, horn, wire, or internal-path geometry.", result: "Current watertight recommendation; servo fit is confirmed and the combined underside needs one pilot.", state: "Current" },
   ],
   "servo-vertical": [
     { version: "Fit coupon", problem: "The SG90 dimensions and pilot size needed direct confirmation.", change: "Tested 12.4 mm body width, 27.5 mm ear spacing, and 1.8 mm pilots.", result: "Core servo dimensions were physically confirmed.", state: "Superseded" },
-    { version: "v1", problem: "An upright mount was needed on a compact 7 x 3 footprint with wire access.", change: "Added two mounting towers and lower wire portals.", result: "Current fit-confirmed design; full activity use remains to be piloted.", state: "Current" },
+    { version: "v1", problem: "An upright mount was needed on a compact 7 x 3 footprint with wire access.", change: "Added two mounting towers and lower wire portals.", result: "Fit-confirmed servo foundation retained by the dual-mount revisions.", state: "Superseded" },
+    { version: "v1.1", problem: "The compact cradle needed a cardboard option.", change: "Added enclosed circular end tabs with widened fastener slits.", result: "Superseded before confirmation because the closed tab construction was not the supportless standard.", state: "Superseded" },
+    { version: "v1.2", problem: "The cradle needed bridge-safe roof support and truly open cardboard paths.", change: "Made 15 non-gripping centers solid, anchored six open Coupon-F bores, and rebuilt the end tabs as open 3.4 × 1.8 mm portals from the clean v1 base.", result: "Current watertight recommendation; confirmed servo dimensions are preserved and the combined dual mount needs one pilot.", state: "Current" },
   ],
   "servo-gauge": [
     { version: "v1-v1.7", problem: "The horn lacked sweep clearance, panel holders snapped, markings failed, and panels were repeatedly too narrow.", change: "Strengthened edge-length holders, corrected the panel width, reduced the opening, and simplified markings.", result: "The v1.7 panel width was physically reported correct.", state: "Superseded" },
-    { version: "v1.8", problem: "The successful-width gauge still forced the servo label downward.", change: "Mirrored the primary opening for label-up installation while preserving panel width.", result: "Current recommendation; new label-up orientation was not physically reconfirmed.", state: "Current" },
+    { version: "v1.8", problem: "The successful-width gauge still forced the servo label downward.", change: "Mirrored the primary opening for label-up installation while preserving panel width.", result: "Label-up mechanism foundation retained by later revisions.", state: "Superseded" },
+    { version: "v1.9", problem: "The gauge needed compact cardboard fastening without external projections.", change: "Added two top-open 3.4 × 1.8 mm internal paths.", result: "Mounting paths retained; hollow roof supports were superseded after physical bridge failure on the related potentiometer base.", state: "Superseded" },
+    { version: "v2.0", problem: "Twenty-nine hollow non-gripping centers left repeated bridges under the broad base roof.", change: "Made those centers solid and added six split-aligned C anchors while preserving the label-up holder, panels, strap, pointer clearance, wire exit, and cardboard paths.", result: "Current watertight mechanism-confirmed recommendation; pilot the complete new underside and pointer sweep.", state: "Current" },
   ],
   "servo-latch": [
     { version: "Concept", problem: "P2.4 needed a visible physical locked/unlocked output.", change: "Selected the SG90 horn itself as a rotating bolt.", result: "Simple mechanism direction established.", state: "Superseded" },
-    { version: "v1", problem: "The bolt needed a safe keeper and adjustable software endpoints.", change: "Added an open-top reinforced keeper and retained the shared servo cradle geometry.", result: "Current prototype awaiting a physical motion and clearance test.", state: "Current" },
+    { version: "v1", problem: "The bolt needed a safe keeper and adjustable software endpoints.", change: "Added an open-top reinforced keeper and retained the shared servo cradle geometry.", result: "Mechanism foundation retained by later revisions.", state: "Superseded" },
+    { version: "v1.1", problem: "The latch needed cardboard mounting without changing its keeper.", change: "Added two top-open 3.4 × 1.8 mm internal paths.", result: "Mounting paths retained; hollow roof supports were superseded before a full motion pilot.", state: "Superseded" },
+    { version: "v1.2", problem: "Twenty-nine hollow support centers created unnecessary bridge risks beneath the base roof.", change: "Made every non-gripping center solid and added six C anchors while preserving the keeper, strap, servo fit, horn clearance, and internal paths.", result: "Current watertight prototype awaiting motion, endpoint, LEGO, and cardboard testing.", state: "Current" },
   ],
   "servo-door": [
     { version: "Concept", problem: "Students needed to see how servo rotation becomes flap motion.", change: "Chose a separate 8-32 hinge and adjustable crank linkage.", result: "Mechanism-learning goals and hardware were defined.", state: "Superseded" },
-    { version: "v1", problem: "One linkage geometry would hide mechanical-advantage tradeoffs.", change: "Included three link lengths and multiple crank holes.", result: "Current prototype awaiting physical endpoint, binding, and force testing.", state: "Current" },
+    { version: "v1", problem: "One linkage geometry would hide mechanical-advantage tradeoffs.", change: "Included three link lengths and two flap attachment holes.", result: "Mechanism foundation retained by later revisions.", state: "Superseded" },
+    { version: "v1.1", problem: "The door mechanism needed cardboard mounting without external tabs.", change: "Added two top-open 3.4 × 1.8 mm internal paths.", result: "Path geometry retained; hollow roof supports were superseded before physical motion testing.", state: "Superseded" },
+    { version: "v1.2", problem: "Thirty-nine hollow non-gripping centers left repeated roof bridges across the largest servo base.", change: "Made those centers solid and added six C anchors while preserving the 8-32 hinge, flap clearance, two attachment holes, three links, strap, servo fit, and internal paths.", result: "Current watertight prototype awaiting endpoint, binding, force, LEGO, and cardboard testing.", state: "Current" },
   ],
 };
 
@@ -500,7 +513,7 @@ export function ModuleLibrary() {
             <p className="section-kicker">THE LIBRARY</p>
             <h2 id="library-title">Find the right testbed module.</h2>
           </div>
-          <p>Every download contains the main printable parts and a brief README. Fit coupons and reference meshes are intentionally omitted from these streamlined packs.</p>
+          <p>Every download contains the main printable parts and a README. The newest supportless dual-mount packs also include fit coupons, dimensions, validation notes, previews, and the source builder.</p>
         </div>
 
         <div className="library-tools">
@@ -633,7 +646,7 @@ export function ModuleLibrary() {
         </div>
         <div className="fit-callout dual-mount-callout">
           <strong>Direct cardboard dual mount</strong>
-          <p>The compact resistor v2.8 is the current physically fit-confirmed reference: Coupon-F LEGO clutch, open brick-style tabs, and 3.4 × 1.8 mm brass-fastener slits. The LED v2.6 retains that open-tab construction and adds split-aligned first-layer anchor feet, but still needs one pilot print. Older dual-mount packages remain prototypes and will be replaced sequentially as their mechanisms are reviewed.</p>
+          <p>The compact resistor v2.8 is the current physically fit-confirmed reference for Coupon-F clutch, open brick-style tabs, and 3.4 × 1.8 mm brass-fastener slits. Modules with broad cavity roofs now make every safe non-gripping tube center solid while keeping the true Coupon-F clutch bores open with split-aligned C anchors. Each revised complete assembly still needs one pilot before classroom quantities.</p>
         </div>
       </section>
 
