@@ -12,8 +12,11 @@ test("exports the module library landing page", async () => {
   assert.match(html, /Build the interaction/);
   assert.match(html, /Flex-Sensor Paddle/);
   assert.match(html, /Upright Dashboard Gauge/);
+  assert.match(html, /Single-LED M3 Terminal Module/);
+  assert.match(html, /v1\.0 · solid supports \+ anchor feet/);
   assert.match(html, /v1\.3 · solid supports \+ anchor feet/);
-  assert.match(html, /v2\.6 · open tabs \+ anchor feet/);
+  assert.match(html, /v2\.7 · solid supports \+ anchor feet/);
+  assert.match(html, /18 solid roof supports/);
   assert.match(html, /v5\.4 · internal paths \+ anchor feet/);
   assert.match(html, /v2\.2 · open tabs \+ solid supports/);
   assert.match(html, /v1\.5 · solid supports \+ anchor feet/);
@@ -64,7 +67,15 @@ test("ships every public module download and preview", async () => {
   }
   await access(
     new URL(
-      "../public/downloads/three-led-m3-module-v2-6-open-tabs-anchor-feet.zip",
+      "../public/downloads/three-led-m3-module-v2-7-open-tabs-solid-supports-anchor-feet.zip",
+      import.meta.url,
+    ),
+  );
+  await access(new URL("../public/images/led-module.png", import.meta.url));
+  await access(new URL("../public/images/single-led-module.png", import.meta.url));
+  await access(
+    new URL(
+      "../public/downloads/single-led-m3-module-v1-0-open-tabs-solid-supports-anchor-feet.zip",
       import.meta.url,
     ),
   );
