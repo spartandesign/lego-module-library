@@ -28,7 +28,8 @@ test("exports the module library landing page", async () => {
   assert.match(html, /v2\.8 · indexed M3 \+ 3\.6 mm paths/);
   assert.match(html, /18 solid roof supports/);
   assert.match(html, /six indexed M3 nut paths and screw bores/);
-  assert.match(html, /v5\.5 · 39 supports \+ 3\.6 mm paths/);
+  assert.match(html, /v5\.6 · reinforced towers \+ 3\.6 mm paths/);
+  assert.match(html, /calculated bending inertia is 3\.76–4\.63×/);
   assert.match(html, /all 60 LEGO seating clearances remain open/);
   assert.match(html, /v2\.3 · 3\.6 mm paths/);
   assert.match(html, /v1\.6 · 3\.6 mm paths/);
@@ -42,6 +43,7 @@ test("exports the module library landing page", async () => {
   assert.doesNotMatch(html, /flex-door-flap-module-v1-7-dual-mount-3p4\.zip/);
   assert.doesNotMatch(html, /fsr402-pressure-pad-module-v1-3-dual-mount-3p4\.zip/);
   assert.doesNotMatch(html, /fsr402-universal-pressure-module-v2-5-dual-mount-3p4\.zip/);
+  assert.doesNotMatch(html, /microbit-original-guide-stand-v5-5-solid-supports-internal-paths-anchor-feet-3p6\.zip/);
 });
 
 test("ships every public module download and preview", async () => {
@@ -105,7 +107,7 @@ test("ships every public module download and preview", async () => {
   );
   await access(
     new URL(
-      "../public/downloads/microbit-original-guide-stand-v5-5-solid-supports-internal-paths-anchor-feet-3p6.zip",
+      "../public/downloads/microbit-original-guide-stand-v5-6-reinforced-towers-solid-supports-3p6.zip",
       import.meta.url,
     ),
   );
