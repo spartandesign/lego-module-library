@@ -233,7 +233,7 @@ const modules: Module[] = [
     parts: ["Reinforced exact-guide stand", "Full-height rear/outward tower spines", "39 solid roof supports", "6 open Coupon-F bores + C anchors", "Microbit Alligator Clip Guide v2", "3.2 / 3.4 / 3.6 mm brad coupon"],
     teacherNote: "The guide and LEGO relationships are inherited from the confirmed stand, but the original 5.10 mm-thick towers physically snapped. Version 5.6 adds full-height rear/outward L-shaped spines and smooth supportless root buttresses without changing either guide-facing surface. The upper tower area is about 2× and calculated bending inertia is 3.76–4.63× the v5.5 value. All 39 roof supports and six open Coupon-F bores with C anchors remain unchanged, all 60 LEGO seating clearances remain open, and both 3.6 × 1.8 mm paths are preserved. Pilot tower durability before classroom quantities.",
     studentTip: "Slide the micro:bit into the guide first, hold the printed base—not a tower—and lower the guide vertically between the towers.",
-    download: "/downloads/microbit-original-guide-stand-v5-6-reinforced-towers-solid-supports-3p6.zip",
+    download: "/downloads/microbit-stand-v5-6.zip",
     dualMount: true,
   },
   {

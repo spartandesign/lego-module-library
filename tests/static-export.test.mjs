@@ -44,6 +44,7 @@ test("exports the module library landing page", async () => {
   assert.doesNotMatch(html, /fsr402-pressure-pad-module-v1-3-dual-mount-3p4\.zip/);
   assert.doesNotMatch(html, /fsr402-universal-pressure-module-v2-5-dual-mount-3p4\.zip/);
   assert.doesNotMatch(html, /microbit-original-guide-stand-v5-5-solid-supports-internal-paths-anchor-feet-3p6\.zip/);
+  assert.doesNotMatch(html, /microbit-original-guide-stand-v5-6-reinforced-towers-solid-supports-3p6\.zip/);
 });
 
 test("ships every public module download and preview", async () => {
@@ -107,8 +108,16 @@ test("ships every public module download and preview", async () => {
   );
   await access(
     new URL(
-      "../public/downloads/microbit-original-guide-stand-v5-6-reinforced-towers-solid-supports-3p6.zip",
+      "../public/downloads/microbit-stand-v5-6.zip",
       import.meta.url,
+    ),
+  );
+  await assert.rejects(
+    access(
+      new URL(
+        "../public/downloads/microbit-original-guide-stand-v5-6-reinforced-towers-solid-supports-3p6.zip",
+        import.meta.url,
+      ),
     ),
   );
   for (const moduleZip of [
