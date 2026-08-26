@@ -237,6 +237,24 @@ const modules: Module[] = [
     dualMount: true,
   },
   {
+    id: "aa-battery-cradles",
+    title: "2×AA / 4×AA Battery-Pack Cradles",
+    version: "v1.4 · captive 3/4 in strap",
+    category: "micro:bit",
+    status: "Prototype",
+    statusTone: "prototype",
+    image: "/images/aa-battery-cradles.png",
+    summary: "Matching open-top power-pack cradles with captive 19.05 mm strap tracks, 22 / 50 solid roof supports, six anchored Coupon-F bores per base, and two internal 3.6 × 1.8 mm brass-fastener paths.",
+    learning: "Keeps portable power secure and removable while preserving battery access, cable relief, LEGO mounting, and cardboard-testbed mounting.",
+    projectFit: ["P2.4", "P3.2", "Portable power"],
+    hardware: ["PLTW 2801AA2JST 2×AA or 2801AA4PWR 4×AA pack", "3/4 in (19.05 mm) double-sided hook-and-loop strap", "2× classroom brass fasteners for cardboard"],
+    parts: ["2×AA cradle · 8 × 5 studs", "4×AA cradle · 8 × 9 studs", "Integrated 45° captive strap keepers", "22 / 50 solid roof supports", "6 open Coupon-F bores + C anchors per cradle", "Two 3.6 × 1.8 mm brad paths per cradle"],
+    teacherNote: "Version 1.4 retains the verified battery-pack pockets, cable relief, LEGO underside, 3.6 × 1.8 mm cardboard paths, solid roof supports, and six open Coupon-F bores with C anchors on each cradle. Two short opposing 45° keeper zones capture the nominal 19.05 mm strap without a long unsupported bridge or hot glue. Both exact STLs are watertight, single-component meshes and pass the 20.0 × 1.6 mm digital validation gauge, but the actual strap thickness was not measured or published. Print the 2×AA cradle underside-down with supports off and pilot the actual strap before making a class set.",
+    studentTip: "Slide the strap beneath both short keeper zones before installing the battery holder. If it will not slide without force, stop rather than stretching or breaking the printed lips.",
+    download: "/downloads/aa-battery-pack-cradles-v1-4-captive-strap.zip",
+    dualMount: true,
+  },
+  {
     id: "servo-horizontal",
     title: "SG90 Horizontal Cradle",
     version: "v1.6 · 3.6 mm paths",
@@ -408,6 +426,12 @@ const developmentHistory: Record<string, HistoryItem[]> = {
     { version: "v5.5", problem: "Thirty-nine hollow non-clutch centers left repeated unsupported roof bridges, and the paths needed the 3.6 mm classroom opening.", change: "Added 39 full 5.20 × 2.85 mm supports and widened both top-open paths while retaining the six open Coupon-F bores, exact guide, and all LEGO clearances.", result: "Superseded after physical use showed that both inherited 5.10 mm-thick towers could snap above their short root gussets.", state: "Superseded" },
     { version: "v5.6", problem: "The 49 mm-tall towers retained about 40 mm of unbraced length above their original gussets and failed in physical use.", change: "Added full-height 2.4–2.5 mm rear/outward L-shaped spines and smooth supportless buttresses rising to 28–30 mm while preserving the exact guide-facing and center-facing surfaces.", result: "Current watertight, clearance-validated recommendation; upper tower area is about 2× and calculated bending inertia is 3.76–4.63×, but physical tower durability still needs a pilot.", state: "Current" },
   ],
+  "aa-battery-cradles": [
+    { version: "v1.0", problem: "The documented 2×AA and 4×AA packs needed matching open-top cradles for the shared 8 mm module grid.", change: "Built separate 8 × 5 and 8 × 9 bases around the verified pack envelopes with battery access and full-height cable relief.", result: "Established the two-size design language and printable cradle pockets; physical pack pilots remained pending.", state: "Superseded" },
+    { version: "v1.1–v1.2", problem: "The removable packs needed a reusable hold-down that did not block battery replacement.", change: "Added and then resized the center strap route for the confirmed 3/4 in (19.05 mm) hook-and-loop width.", result: "Nominal strap width was accommodated, but the strap still relied on glue or pack pressure to stay positioned during assembly.", state: "Superseded" },
+    { version: "v1.3", problem: "Both sizes needed the revised supportless dual-mount standard for LEGO plates and cardboard testbeds.", change: "Added two 3.6 × 1.8 mm brass-fastener paths, solid non-clutch roof supports, and six split-aligned C anchors while retaining six open Coupon-F clutch bores.", result: "Dual-mount geometry and exact meshes passed digital validation; physical cardboard, clutch, and pack pilots remained pending.", state: "Superseded" },
+    { version: "v1.4", problem: "The non-adhesive strap needed to stay located in the body without hot glue or a separate loose clip.", change: "Deepened the full-span route and added two short zones of opposing 45° keeper lips with tapered entries, keeping all new geometry at or below the battery seating plane.", result: "Current watertight, supportless two-size pack; the 20.0 × 1.6 mm digital gauge and retention probes pass, but the actual strap thickness still requires a no-force physical pilot.", state: "Current" },
+  ],
   "servo-horizontal": [
     { version: "Coupon-v1.2", problem: "The servo body fit at 12.4 mm, but it could slide out and wire routing forced one orientation.", change: "Added retention, larger horn-side gaps, and wire exits at both ends.", result: "Body width and 1.8 mm pilot dimensions were physically confirmed.", state: "Superseded" },
     { version: "v1.3", problem: "The servo needed label-up installation in either direction.", change: "Added dual horn gaps, central wire relief, and a retaining strap.", result: "Fit-confirmed servo foundation retained by later versions.", state: "Superseded" },
@@ -509,11 +533,11 @@ export function ModuleLibrary() {
             coding, circuitry, and mechanisms instead of fighting fragile connections.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#library">Browse 15 modules</a>
+            <a className="button button-primary" href="#library">Browse {modules.length} modules</a>
             <a className="button button-secondary" href="#print-standard">Use the print standard</a>
           </div>
           <dl className="hero-stats" aria-label="Library summary">
-            <div><dt>15</dt><dd>download packs</dd></div>
+            <div><dt>{modules.length}</dt><dd>download packs</dd></div>
             <div><dt>1</dt><dd>shared F-fit interface</dd></div>
             <div><dt>0</dt><dd>supports on standard parts</dd></div>
           </dl>

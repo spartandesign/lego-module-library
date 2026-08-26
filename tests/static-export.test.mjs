@@ -31,6 +31,10 @@ test("exports the module library landing page", async () => {
   assert.match(html, /v5\.6 · reinforced towers \+ 3\.6 mm paths/);
   assert.match(html, /calculated bending inertia is 3\.76–4\.63×/);
   assert.match(html, /all 60 LEGO seating clearances remain open/);
+  assert.match(html, /2×AA \/ 4×AA Battery-Pack Cradles/);
+  assert.match(html, /v1\.4 · captive 3\/4 in strap/);
+  assert.match(html, /20\.0 × 1\.6 mm digital validation gauge/);
+  assert.match(html, /<dt>17<\/dt><dd>download packs<\/dd>/);
   assert.match(html, /v2\.3 · 3\.6 mm paths/);
   assert.match(html, /v1\.6 · 3\.6 mm paths/);
   assert.match(html, /v1\.3 · 3\.6 mm open paths/);
@@ -53,7 +57,7 @@ test("ships every public module download and preview", async () => {
     ...html.matchAll(/(?:src|href)=["']([^"']+(?:\.png|\.zip))["']/g),
   ].map((match) => match[1]);
 
-  assert.ok(publicPaths.length >= 30, "expected previews and download links");
+  assert.ok(publicPaths.length >= 34, "expected previews and download links");
 
   for (const publicPath of publicPaths) {
     const normalized = publicPath
@@ -112,6 +116,12 @@ test("ships every public module download and preview", async () => {
       import.meta.url,
     ),
   );
+  await access(
+    new URL(
+      "../public/downloads/aa-battery-pack-cradles-v1-4-captive-strap.zip",
+      import.meta.url,
+    ),
+  );
   await assert.rejects(
     access(
       new URL(
@@ -147,6 +157,7 @@ test("ships every public module download and preview", async () => {
     "led-module.png",
     "buzzer.png",
     "microbit-stand.png",
+    "aa-battery-cradles.png",
     "servo-horizontal.png",
     "servo-vertical.png",
     "servo-gauge.png",
