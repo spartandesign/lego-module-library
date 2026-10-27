@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - "public/downloads/Hummingbird_Battery_Cover_V23.py"
+      - "public/downloads/Hummingbird_Battery_Cover_V26_Side_Mounts.py"
       - ".github/workflows/hummingbird-battery-cover.yml"
   workflow_dispatch:
 permissions:
@@ -21,12 +22,14 @@ jobs:
       - name: Install CAD tools
         run: python -m pip install cadquery trimesh
       - name: Generate both STL files
-        run: python public/downloads/Hummingbird_Battery_Cover_V23.py
+        run: |
+          python public/downloads/Hummingbird_Battery_Cover_V23.py
+          python public/downloads/Hummingbird_Battery_Cover_V26_Side_Mounts.py
       - name: Commit generated STL downloads
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/downloads/Hummingbird_Battery_Cover_V23A_Inner_Face_Tabs.stl public/downloads/Hummingbird_Battery_Cover_V23B_Inner_Face_Tabs.stl
+          git add public/downloads/Hummingbird_Battery_Cover_V23A_Inner_Face_Tabs.stl public/downloads/Hummingbird_Battery_Cover_V23B_Inner_Face_Tabs.stl public/downloads/Hummingbird_Battery_Cover_V26A_Side_Brad_Mounts.stl public/downloads/Hummingbird_Battery_Cover_V26B_Side_Brad_Mounts.stl
           if ! git diff --cached --quiet; then
             git commit -m "Generate Hummingbird V23 printable STL downloads"
             git push
